@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>craigslist - account log in</title>
+        <title>craigslist - account password reset</title>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width,initial-scale=1">
         
@@ -11,8 +11,9 @@
         <!-- CSS Files -->
         <link rel="stylesheet" href="CSS/Base.css" type="text/css">
     </head>
+
 <body class=" desktop w1024">
-    <script type="text/javascript"><!--
+        <script type="text/javascript"><!--
     function C(k){return(document.cookie.match('(^|; )'+k+'=([^;]*)')||0)[2]}
     var pagetype, pagemode;
     (function(){
@@ -47,7 +48,8 @@
 --></script>
 
 
-    <section class="page-container">
+        <section class="page-container">
+
 <header class="global-header ">
    <a class="header-logo" name="logoLink" href="http://www.craigslist.org?lang=en&amp;cc=us">CL</a>
 
@@ -60,7 +62,7 @@
 
         <li class="crumb plain-message">
             <p>
-account log in            </p>
+account password reset            </p>
         </li>
 </ul>
     </nav>
@@ -68,65 +70,32 @@ account log in            </p>
 
 </header>
 
+            <section class="body">
+                <div class="accountform password-reset-box">
 
-<section class="body">
-    <div class="login-page-boxes">
-        <div class="accountform login-box">
-            <h1 class="accountform-banner">Log in</h1>
-            <form action="https://accounts.craigslist.org/login?lang=en&amp;cc=us" method="POST" class="loginform">
-                <input type="hidden" name="step" value="confirmation">
-                <input type="hidden" name="rt" value="L">
-                <input type="hidden" name="rp" value="/login/home">
-                <input type="hidden" name="t" value="1521043560">
-                <input type="hidden" name="p" value="0">
-                <input type="hidden" name="whichForm" value="login">
-
-
-
-
-
-
-
-                <div class="accountform-field">
-                    <label for="inputEmailHandle">Email / Handle</label>
-                    <input type="text" id="inputEmailHandle" name="inputEmailHandle" value="" required="">
-                </div>
-                <div class="accountform-field">
-                    <label for="inputPassword">Password</label>
-                    <input id="inputPassword" type="password" name="inputPassword" required="" autocomplete="off">
-                </div>
-                <div class="accountform-actions">
-                    <button type="submit" class="accountform-btn">Log in</button>
-                    <a href="forgot.html" class="accountform-helplink">Forgot password?</a>
-                </div>
-            </form>
-        </div>
-
-            <p class="box-conjunction">
-                or
-            </p>
-
-            <div class="accountform login-page-box">
-                <h1 class="accountform-banner">Create an account</h1>
-                <form action="https://accounts.craigslist.org/login?lang=en&amp;cc=us" method="POST">
-                    <input type="hidden" name="rp" value="/login/home">
-                    <input type="hidden" name="rt" value="L">
-                    <input type="hidden" name="t" value="1521043560">
-                    <input type="hidden" name="whichForm" value="createAccount">
-
-
-                    <div class="accountform-field">
-                        <label for="emailAddress">Email</label>
-                        <input type="email" id="emailAddress" name="emailAddress" value="" maxlength="64" required="">
-                        </div>
-                    <div class="accountform-actions">
-                        <button type="submit" class="accountform-btn">Create account</button>
-                        <a href="account-help.html" class="accountform-helplink">Account help</a>
+                    <h1 class="accountform-banner">Account password reset</h1>
+                    <div class="alert alert-sm alert-info" role="alert">
+                        <p>Enter your account email address to reset your password.</p>
                     </div>
-                </form>
-            </div>
-    </div>
-</section>
+
+
+                    <form action="" method="post">
+
+                        <div class="accountform-field">
+                            <label for="email">Email</label>
+                            <input id="email" type="email" name="emailAddressHandle" value="" size="40" maxlength="64" required="">
+                        </div>
+
+                        <div class="accountform-actions">
+                            <button class="accountform-btn" type="submit" value="Reset password">Reset password</button>
+                            <a href="account-help.html" class="accountform-helplink">Account help</a>
+                        </div>
+
+                    </form>
+
+                </div>
+            </section>
+
 <footer>
     <ul class="clfooter">
         <li>©  <span class="desktop">craigslist</span><span class="mobile">CL</span></li>
@@ -141,7 +110,8 @@ account log in            </p>
         <li class="fsel mobile linklike" data-mode="regular">desktop</li>
     </ul>
 </footer>
-    </section>
+
+        </section>
 
         <script src="//www.craigslist.org/js/general-concat.min.js?v=add23877c18964abbf775789fb49e5ae" type="text/javascript"></script>
 
@@ -151,19 +121,7 @@ account log in            </p>
         iframe.src = '//www.' + CL.url.baseDomain + '/static/localstorage.html?v=51a29e41f8e978141e4085ed4a77d170';
         document.body.insertBefore(iframe, null);
     --></script><iframe src="//www.craigslist.org/static/localstorage.html?v=51a29e41f8e978141e4085ed4a77d170" style="display: none;"></iframe>
-        <script type="text/javascript">
-            <!--
-                if (top != self) { top.location.href = location.href; }
-                $(document).ready(
-                    function() {
-                        $('#inputEmailHandle').focus();
-                        $('#inputPassword').attr('autocomplete','off');
-                    }
-                );
-            -->
-        </script>
+
     
 
-
 </body>
-</html>
