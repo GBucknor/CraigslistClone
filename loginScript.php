@@ -15,7 +15,7 @@ require_once('mysqli_connect.php');
             die("Connection failed: ".mysqli_connect_error()); // Remove the connect_error method after done testing because of hacking issues.
         }
 
-        $query = "SELECT * FROM Login WHERE firstName='$email' AND lastName='$pass'";
+        $query = "SELECT * FROM Login WHERE userName='$email' AND passName='$pass'";
         
         $result = mysqli_query($list,$query)or die(mysqli_error());
         $num_row = mysqli_num_rows($result);
