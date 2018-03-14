@@ -4,3 +4,5 @@ CREATE TABLE Login
     ,userName   VARCHAR(30) NOT NULL
     ,passName   VARCHAR(30) NOT NULL
 );
+
+INSERT INTO Login (id, userName, passName) VALUES (Null, 'Ryan', '1234');

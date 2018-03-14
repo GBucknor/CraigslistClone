@@ -1,7 +1,11 @@
 <?php
+require_once('mysqli_connect.php');
+
     if(isset($_POST['submit'])) {
-        $user = $_POST['userName'];
-        $pass = $_POST['passName'];
+        $email = $_POST['inputEmailHandle'];
+        $pass = $_POST['inputPassword'];
+        echo $email;
+        echo $pass;
 
         // Connecting to the database
         $list = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
@@ -11,13 +15,12 @@
             die("Connection failed: ".mysqli_connect_error()); // Remove the connect_error method after done testing because of hacking issues.
         }
 
-        $query = "SELECT * FROM Login WHERE firstName='$user' AND lastName='$pass'";
+        $query = "SELECT * FROM Login WHERE firstName='$email' AND lastName='$pass'";
         
         $result = mysqli_query($list,$query)or die(mysqli_error());
         $num_row = mysqli_num_rows($result);
 
        if( $num_row == 1 ) {
-           echo "No.";
            mysqli_close($list);
            header('Location: index.html');
            die();
