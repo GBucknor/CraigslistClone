@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>craigslist - account log in</title>
+        <meta charset="utf-8">
+        
+        <!-- Craigslist Tab Icon -->
+        <link rel="icon" href="Images/logo.png">
+        
+        <!-- CSS Files -->
+        <link rel="stylesheet" href="CSS/Base.css" type="text/css">
+    </head>
+<body class=" desktop w1024">
+    <script type="text/javascript"><!--
+    function C(k){return(document.cookie.match('(^|; )'+k+'=([^;]*)')||0)[2]}
+    var pagetype, pagemode;
+    (function(){
+        var h = document.documentElement;
+        h.className = h.className.replace('no-js', 'js');
+        var b = document.body;
+        var bodyClassList = b.className.split(/\s+/);;
+        pagetype = bodyClassList[0]; // dangerous assumption
+        var fmt = C('cl_fmt');
+        if ( fmt === 'regular' || fmt === 'mobile' ) {
+            pagemode = fmt;
+        } else if (screen.width <= 480) {
+            pagemode = 'mobile';
+        } else {
+            pagemode = 'regular';
+        }
+        pagemode = pagemode === 'mobile' ? 'mobile' : 'desktop';
+        bodyClassList.push(pagemode);
+        if (C('hidesearch') === '1' && pagemode !== 'mobile') {
+            bodyClassList.push('hide-search');
+        }
+        var width = window.innerWidth || document.documentElement.clientWidth;
+        if (width > 1000) { bodyClassList.push('w1024'); }
+        if (typeof window.sectionBase !== 'undefined') {
+            var mode = (decodeURIComponent(C('cl_tocmode') || '').match(new RegExp(window.sectionBase + ':([^,]+)', 'i')) || {})[1] || window.defaultView;
+            if (mode) {
+                bodyClassList.push(mode);
+            }
+        }
+        b.className = bodyClassList.join(' ');
+    }());
+--></script>
+
+
+    <section class="page-container">
+<header class="global-header ">
+   <a class="header-logo" name="logoLink" href="http://www.craigslist.org?lang=en&amp;cc=us">CL</a>
+
+    <nav class="breadcrumbs-container">
+
+<ul class="breadcrumbs">
+
+
+
+
+        <li class="crumb plain-message">
+            <p>
+account log in            </p>
+        </li>
+</ul>
+    </nav>
+
+
+</header>
+
+
+<section class="body">
+    <div class="login-page-boxes">
+        <div class="accountform login-box">
+            <h1 class="accountform-banner">Log in</h1>
+            <form action="https://accounts.craigslist.org/login?lang=en&amp;cc=us" method="POST" class="loginform">
+                <input type="hidden" name="step" value="confirmation">
+                <input type="hidden" name="rt" value="L">
+                <input type="hidden" name="rp" value="/login/home">
+                <input type="hidden" name="t" value="1521043560">
+                <input type="hidden" name="p" value="0">
+                <input type="hidden" name="whichForm" value="login">
+
+
+
+
+
+
+
+                <div class="accountform-field">
+                    <label for="inputEmailHandle">Email / Handle</label>
+                    <input type="text" id="inputEmailHandle" name="inputEmailHandle" value="" required="">
+                </div>
+                <div class="accountform-field">
+                    <label for="inputPassword">Password</label>
+                    <input id="inputPassword" type="password" name="inputPassword" required="" autocomplete="off">
+                </div>
+                <div class="accountform-actions">
+                    <button type="submit" class="accountform-btn">Log in</button>
+                    <a href="https://accounts.craigslist.org/reset?lang=en&amp;cc=us" class="accountform-helplink">Forgot password?</a>
+                </div>
+            </form>
+        </div>
+
+            <p class="box-conjunction">
+                or
+            </p>
+
+            <div class="accountform login-page-box">
+                <h1 class="accountform-banner">Create an account</h1>
+                <form action="https://accounts.craigslist.org/login?lang=en&amp;cc=us" method="POST">
+                    <input type="hidden" name="rp" value="/login/home">
+                    <input type="hidden" name="rt" value="L">
+                    <input type="hidden" name="t" value="1521043560">
+                    <input type="hidden" name="whichForm" value="createAccount">
+
+
+                    <div class="accountform-field">
+                        <label for="emailAddress">Email</label>
+                        <input type="email" id="emailAddress" name="emailAddress" value="" maxlength="64" required="">
+                        </div>
+                    <div class="accountform-actions">
+                        <button type="submit" class="accountform-btn">Create account</button>
+                        <a href="https://www.craigslist.org/about/help/user_accounts?lang=en&amp;cc=us" class="accountform-helplink">Account help</a>
+                    </div>
+                </form>
+            </div>
+    </div>
+</section>
+<footer>
+    <ul class="clfooter">
+        <li>©  <span class="desktop">craigslist</span><span class="mobile">CL</span></li>
+        <li><a href="https://www.craigslist.org/about/help/?lang=en&amp;cc=us">help</a></li>
+        <li><a href="https://www.craigslist.org/about/scams?lang=en&amp;cc=us">safety</a></li>
+        <li class="desktop"><a href="https://www.craigslist.org/about/privacy.policy?lang=en&amp;cc=us">privacy</a></li>
+        <li class="desktop"><a href="https://forums.craigslist.org/?lang=en&amp;cc=us&amp;forumID=8">feedback</a></li>
+        <li class="desktop"><a href="https://www.craigslist.org/about/craigslist_is_hiring?lang=en&amp;cc=us">cl jobs</a></li>
+        <li><a href="//www.craigslist.org/about/terms.of.use">terms</a><sup class="neu">new</sup></li>
+        <li><a href="https://www.craigslist.org/about/?lang=en&amp;cc=us">about</a></li>
+        <li class="fsel desktop linklike" data-mode="mobile">mobile</li>
+        <li class="fsel mobile linklike" data-mode="regular">desktop</li>
+    </ul>
+</footer>
+    </section>
+
+        <script src="//www.craigslist.org/js/general-concat.min.js?v=add23877c18964abbf775789fb49e5ae" type="text/javascript"></script>
+
+        <script type="text/javascript"><!--
+        var iframe = document.createElement('iframe');
+        iframe.style.display = 'none';
+        iframe.src = '//www.' + CL.url.baseDomain + '/static/localstorage.html?v=51a29e41f8e978141e4085ed4a77d170';
+        document.body.insertBefore(iframe, null);
+    --></script><iframe src="//www.craigslist.org/static/localstorage.html?v=51a29e41f8e978141e4085ed4a77d170" style="display: none;"></iframe>
+        <script type="text/javascript">
+            <!--
+                if (top != self) { top.location.href = location.href; }
+                $(document).ready(
+                    function() {
+                        $('#inputEmailHandle').focus();
+                        $('#inputPassword').attr('autocomplete','off');
+                    }
+                );
+            -->
+        </script>
+    
+
+
+</body>
+</html>
