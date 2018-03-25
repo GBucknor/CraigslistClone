@@ -2,6 +2,7 @@
 require_once('mysqli_connect.php');
 
     if(isset($_POST['submit'])) {
+        
         $title = $_POST['title'];
         $specLoc = $_POST['specLoc'];
         $postal = $_POST['postal'];
@@ -9,11 +10,12 @@ require_once('mysqli_connect.php');
         $phoneNum = $_POST['phone'];
         $contact = $_POST['contact'];
         $body = $_POST['Text1'];
+        $body2 = htmlentities($body, ENT_QUOTES, "UTF-8");
    
         $list = connect();
         
         $sql = "INSERT INTO Posting (postID, title, specLoc, postCode, body, contactOp, phoneNum, contactName)
-        VALUES (NULL,'$title', '$specLoc', '$postal', '$body', '$phoneOp', '$phoneNum', '$contact')";
+        VALUES (NULL,'$title', '$specLoc', '$postal', '$body2', '$phoneOp', '$phoneNum', '$contact')";
         
         sqlCheck($list, $sql);
         
