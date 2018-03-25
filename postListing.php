@@ -21,6 +21,7 @@
 <body>
 
 <h2>Posting Listing Page Testing</h2> 
+<p>testdsfsdf</p>
     
 <?php
     // Connecting to the database
