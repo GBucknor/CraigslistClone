@@ -12,10 +12,17 @@ require_once('mysqli_connect.php');
         if(!$list) {
             die("Connection failed: ".mysqli_connect_error()); // Remove the connect_error method after done testing because of hacking issues.
         }
+			
+		mysqli_query($list, "CREATE TABLE IF NOT EXISTS Users(
+				id INT AUTO_INCREMENT NOT NULL PRIMARY KEY
+				, userName VARCHAR(50) NOT NULL
+				, passName VARCHAR(100) NOT NULL
+				, handle VARCHAR(50)
+			)AUTO_INCREMENT = 100;") or die(mysqli_error($list));
 
-        $query = "SELECT * FROM Login WHERE userName='$email' AND passName='$pass'";
+        $query = "SELECT * FROM Users WHERE userName='$email' AND passName='$pass'";
         
-        $result = mysqli_query($list,$query)or die(mysqli_error());
+        $result = mysqli_query($list,$query)or die(mysqli_error($list));
         $num_row = mysqli_num_rows($result);
 
        if( $num_row == 1 ) {
@@ -23,7 +30,7 @@ require_once('mysqli_connect.php');
            header('Location: login.html');
            die();
        } else {
-            $sql = "INSERT INTO Login(id, userName, passName) VALUES(NULL, '$email','$pass')";
+            $sql = "INSERT INTO Users(userName, passName) VALUES('$email','$pass')";
            header("Location: login.html");
             // Checking to see if we actually placed the data into the database
             if (mysqli_query($list, $sql)) {
@@ -34,13 +41,15 @@ require_once('mysqli_connect.php');
                 echo "Error: " . $sql . "<br>" . mysqli_error($list). "<br>";
                 die();
             }
+           /** @noinspection PhpUnreachableStatementInspection */
            mysqli_close($list);
            die();
        }     
 
         // Closing the connection to the database
+        /** @noinspection PhpUnreachableStatementInspection */
         echo "Something broke with the signup function";
         mysqli_close($list);
         die();
     }
-?>
+	
