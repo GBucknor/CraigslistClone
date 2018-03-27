@@ -18,3 +18,53 @@ CREATE TABLE Posting
     ,phoneNum       VARCHAR(15)
     ,contactName    VARCHAR(30)
 );
+
+CREATE TABLE Categories
+(
+    catID           INT(8)          UNSIGNED AUTO_INCREMENT PRIMARY KEY
+    ,catName        VARCHAR(255)    NOT NULL
+);
+
+INSERT INTO Categories (catID, catNAme)
+VALUES
+    (NULL, "activites")
+    ,(NULL, "artists")
+    ,(NULL, "childcare")
+    ,(NULL, "classes")
+    ,(NULL, "events")
+    ,(NULL, "general")
+    ,(NULL, "groups")
+    ,(NULL, "localnews")
+    ,(NULL, "lostfound")
+    ,(NULL, "missed")
+    ,(NULL, "connecetions")
+    ,(NULL, "musicians")
+    ,(NULL, "pets")
+    ,(NULL, "polititcs")
+    ,(NULL, "rantraves")
+    ,(NULL, "rideshare")
+    ,(NULL, "volunteers")
+    ,(NULL, "beauty")
+    ,(NULL, "cellmobile")
+    ,(NULL, "computer")
+    ,(NULL, "creative")
+    ,(NULL, "cycle")
+    ,(NULL, "events")
+    ,(NULL, "farmgarden")
+    ,(NULL, "financial")
+    ,(NULL, "household")
+    ,(NULL, "labormove")
+    ,(NULL, "legal")
+    ,(NULL, "lessons")
+    ,(NULL, "marine")
+    ,(NULL, "pet")
+    ,(NULL, "realestate")
+    ,(NULL, "skilledtrade")
+    ,(NULL, "smbizads")
+    ,(NULL, "therapeutic")
+    ,(NULL, "travelvac")
+    ,(NULL, "writeedtran")
+    ,(NULL, "aptshousing")
+    ,(NULL, "houseswap")
+    ,(NULL, "housingwanted")
+    ,(NULL, "activites");
