@@ -1,6 +1,11 @@
 <?php
     session_start();
     require_once('mysqli_connect.php');
+    include 'functions.php';
+
+    if (isLoggedin()) {
+            header('Location: category.php');
+        }
 
     // Connects to the database
     function connect(){

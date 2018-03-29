@@ -1,6 +1,7 @@
 <?php
     session_start();
     require_once('mysqli_connect.php');
+    include 'functions.php';
 
     // Connects to the database
     function connect(){
@@ -20,6 +21,13 @@
 <!DOCTYPE html>
 <html>
 <body>
+    
+    <?php
+        if (isLoggedin()) {
+            echo $_SESSION["user"];
+            echo '<li><a href="logout.php">Logout</a></li>';
+        }
+    ?>
 
 <h2>Individual Posting Testing</h2>
 
@@ -87,10 +95,6 @@
         VALUES (NULL,'$title', '$specLoc', '$postal', '$body2', '$phoneOp', '$phoneNum', '$contact', '$category')";
 
         sqlCheck($list, $sql, $title);
-
-        // Closing the connection to the database
-        mysqli_close($list);
-        die();
     }
     
     // Checking to see if we actually placed the data into the database
@@ -100,8 +104,24 @@
             mysqli_close($list);
             die();
         } else {
-            header("Location: individualPost.php?id=$title");
+            redirect();
         }
+    }
+    
+    function redirect(){
+        
+        $sql = "
+        SELECT
+            postID
+        FROM
+            Posting
+        WHERE
+            catPostID = '$category' AND title = '$title' limit 1";
+        
+        $results = mysqli_query($list, $sql);
+
+        $value = mysqli_fetch_object($result);
+        header("Location: individualPost.php?id=$value");
     }
 ?>
     

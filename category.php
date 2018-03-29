@@ -1,6 +1,7 @@
 <?php
     session_start();
     require_once('mysqli_connect.php');
+    include 'functions.php';
 
     // Connects to the database
     function connect(){
@@ -20,26 +21,40 @@
 <!DOCTYPE html>
 <html>
 <body>
+    
+    <?php
+        if (isLoggedin()) {
+            echo $_SESSION["user"];
+            echo '<li><a href="logout.php">Logout</a></li>';
+        }
+    ?>
 
-<h2>Category Page Testing</h2> 
+    <h2>Category Page Testing</h2> 
     
-<?php
-    // Connecting to the database
-    $list = connect();
+    <?php
+        if (isLoggedin()) {
+            echo '<a href="postingPage.php">Post your listing!</a>';
+            echo '<br><br>';
+        }
+    ?>
     
-        $sql = "SELECT
-                    catName
-                FROM
-                    Categories";
-    
-    $row = mysqli_query($list, $sql);
+    <?php
+        // Connecting to the database
+        $list = connect();
 
-    while($sqlRow = mysqli_fetch_assoc($row))
-    {
-        echo '<a href="postListing.php?id=' . $sqlRow['catName'] . '">' . $sqlRow['catName'] . '</a><br>';
-    }
-    mysqli_close($list);
-?>
+            $sql = "SELECT
+                        catName
+                    FROM
+                        Categories";
+
+        $row = mysqli_query($list, $sql);
+
+        while($sqlRow = mysqli_fetch_assoc($row))
+        {
+            echo '<a href="postListing.php?id=' . $sqlRow['catName'] . '">' . $sqlRow['catName'] . '</a><br>';
+        }
+        mysqli_close($list);
+    ?>
 
 </body>
 </html>

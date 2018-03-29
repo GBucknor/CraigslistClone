@@ -1,6 +1,11 @@
 <?php
     session_start();
     require_once('mysqli_connect.php');
+    include 'functions.php';
+
+    if (!isLoggedin()) {
+            header('Location: userlogin.php');
+        }
 
     // Connects to the database
     function connect(){
@@ -29,8 +34,21 @@
 <!DOCTYPE html>
 <html>
 <body>
+    <?php
+        if (isLoggedin()) {
+            echo $_SESSION["user"] . "<br>";
+            echo '<a href="logout.php">Logout</a>';
+        }
+    ?>
 
-<h2>Posting Listing Page Testing</h2> 
+    <h2>Posting Listing Page Testing</h2> 
+    
+    <?php
+        if (isLoggedin()) {
+            echo '<a href="postingPage.php">Post your listing!</a>';
+            echo '<br><br>';
+        }
+    ?>
     
 <?php
     // Connecting to the database
@@ -44,7 +62,6 @@
     mysqli_close($list);
 ?>
     <br>
-    <a href="postingPage.php">Create a post!</a>
 
 </body>
 </html>

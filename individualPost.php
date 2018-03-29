@@ -1,6 +1,7 @@
 <?php
     session_start();
     require_once('mysqli_connect.php');
+    include 'functions.php';
 
     // Connects to the database
     function connect(){
@@ -26,6 +27,12 @@
 <!DOCTYPE html>
 <html>
 <body>
+    <?php
+        if (isLoggedin()) {
+            echo $_SESSION["user"] . "<br>";
+            echo '<a href="logout.php">Logout</a>';
+        }
+    ?>
 
 <h2>Individual Posting Page Test</h2> 
     

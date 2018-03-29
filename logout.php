@@ -8,7 +8,7 @@
 	session_write_close();
 
     //Sends the user home after logging out
-	header("location: mobileindex.php");
+	header("location: category.php");
 
 	exit();
 ?>
