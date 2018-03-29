@@ -15,11 +15,11 @@
         }
     }
 
-echo $_SERVER['PHP_SELF']."?id=".$_GET['id'];
+    $id = $_GET['id'];
 
     $results = "SELECT * 
                 FROM Posting
-                WHERE postID = " . $_GET['postID'];
+                WHERE postID = '$id'";
 
 ?>
 
@@ -28,14 +28,18 @@ echo $_SERVER['PHP_SELF']."?id=".$_GET['id'];
 <body>
 
 <h2>Individual Posting Page Test</h2> 
-<p>testdsfsdf</p>
     
 <?php
     // Connecting to the database
     $list = connect();
     $row = mysqli_query($list, $results);
 
-    $row['title'];
+    while($sqlRow = mysqli_fetch_assoc($row))
+    {
+        echo "Title: " . $sqlRow['title'] . "<br>";
+        echo "Body: " . $sqlRow['body'] . "<br>";
+        echo "Post ID: " . $sqlRow['postID'];
+    }
     mysqli_close($list);
 ?>
 

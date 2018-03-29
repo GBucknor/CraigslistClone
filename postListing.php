@@ -17,6 +17,7 @@
     $id = $_GET['id'];
 
     $sql = "SELECT
+            postID,
             title
         FROM
             Posting
@@ -30,25 +31,20 @@
 <body>
 
 <h2>Posting Listing Page Testing</h2> 
-<p>testdsfsdf</p>
     
 <?php
     // Connecting to the database
     $list = connect();
     $row = mysqli_query($list, $sql);
 
-    if($row){
-        while($sqlRow = mysqli_fetch_assoc($row))
-        {
-              echo '<a href="individualPost.php?id=' . $sqlRow['title'] . '">' . $sqlRow['title'] . "</a><br>";
-           // echo '<h3><a href="individualPist.php?id=' . $row['postID'] . '">' . $row['title'] . '</a><h3>';
-        }
-    } else {
-        echo "Nothing here";
+    while($sqlRow = mysqli_fetch_assoc($row)) {
+        echo '<a href="individualPost.php?id=' . $sqlRow['postID'] . '">' . $sqlRow['title'] . "</a><br>";
     }
 
     mysqli_close($list);
 ?>
+    <br>
+    <a href="postingPage.php">Create a post!</a>
 
 </body>
 </html>

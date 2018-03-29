@@ -23,7 +23,7 @@
 
 <h2>Individual Posting Testing</h2>
 
-<form action="postScript.php" method="post">
+<form action="" method="post">
     Title:<br>
     <input type="text" name="title">
     <br>
@@ -67,6 +67,44 @@
     <br><br>
     <input type="submit" name="submit" value="Post">
 </form> 
+   
+<?php
+    if(isset($_POST['submit'])) {
+
+        $title = $_POST['title'];
+        $specLoc = $_POST['specLoc'];
+        $postal = $_POST['postal'];
+        $phoneOp = $_POST['phoneOp'];
+        $phoneNum = $_POST['phone'];
+        $contact = $_POST['contact'];
+        $body = $_POST['Text1'];
+        $body2 = htmlentities($body, ENT_QUOTES, "UTF-8");
+        $category = $_POST['category'];
+
+        $list = connect();
+
+        $sql = "INSERT INTO Posting (postID, title, specLoc, postCode, body, contactOp, phoneNum, contactName, catPostID)
+        VALUES (NULL,'$title', '$specLoc', '$postal', '$body2', '$phoneOp', '$phoneNum', '$contact', '$category')";
+
+        sqlCheck($list, $sql, $title);
+
+        // Closing the connection to the database
+        mysqli_close($list);
+        die();
+    }
+    
+    // Checking to see if we actually placed the data into the database
+    function sqlCheck($list, $sql, $title){
+        if (!(mysqli_query($list, $sql))) {
+            echo "Error: " . $sql . "<br>" . mysqli_error($list). "<br>";
+            mysqli_close($list);
+            die();
+        } else {
+            header("Location: individualPost.php?id=$title");
+        }
+    }
+?>
+    
 
 </body>
 </html>
