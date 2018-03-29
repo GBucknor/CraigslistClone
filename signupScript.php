@@ -27,7 +27,7 @@ require_once('mysqli_connect.php');
 
        if( $num_row == 1 ) {
            mysqli_close($list);
-           header('Location: login.html');
+           echo "one already exsist with those credentials";
            die();
        } else {
             $sql = "INSERT INTO Users(userName, passName) VALUES('$email','$pass')";

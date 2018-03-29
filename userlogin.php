@@ -51,12 +51,7 @@
         $pass = $_POST['userpass'];
 
         // Connecting to the database
-        $list = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
-
-        // If we don't connect to the database it will spit out an error for us to fix
-        if(!$list) {
-            die("Connection failed: ".mysqli_connect_error()); // Remove the connect_error method after done testing because of hacking issues.
-        }
+        $list = connect();
 
         $query = "SELECT * FROM Login WHERE userName='$user' AND passName='$pass'";
         
@@ -75,6 +70,46 @@
 
         // Closing the connection to the database
         echo "Something broke with the login function";
+        mysqli_close($list);
+        die();
+    }
+    
+        if(isset($_POST['signup'])) {
+        $signuser = $_POST['usersignup'];
+        $signpass = $_POST['signuppass'];
+
+        // Connecting to the database
+        $list = connect();
+
+        $query = "SELECT * FROM Login WHERE userName='$signuser' AND passName='$signpass'";
+        
+        $result = mysqli_query($list,$query)or die(mysqli_error($list));
+            
+        $num_row = mysqli_num_rows($result);
+
+       if( $num_row == 1 ) {
+           mysqli_close($list);
+           echo "one already exsist with those credentials";
+           die();
+       } else {
+            $sql = "INSERT INTO Login(userName, passName) VALUES('$signuser','$signpass')";
+            // Checking to see if we actually placed the data into the database
+            if (mysqli_query($list, $sql)) {
+                mysqli_close($list);
+                header("Refresh:0");
+                die();
+            } else {
+                echo "Error: " . $sql . "<br>" . mysqli_error($list). "<br>";
+                die();
+            }
+           /** @noinspection PhpUnreachableStatementInspection */
+           mysqli_close($list);
+           die();
+       }     
+
+        // Closing the connection to the database
+        /** @noinspection PhpUnreachableStatementInspection */
+        echo "Something broke with the signup function";
         mysqli_close($list);
         die();
     }
