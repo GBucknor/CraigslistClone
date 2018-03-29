@@ -60,6 +60,7 @@
 
        if( $num_row == 1 ) {
            mysqli_close($list);
+           $_SESSION['user'] = $user;
            header('Location: category.php');
            die();
        } else {
