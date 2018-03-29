@@ -3,10 +3,6 @@
     require_once('mysqli_connect.php');
     include 'functions.php';
 
-    if (!isLoggedin()) {
-            header('Location: userlogin.php');
-        }
-
     // Connects to the database
     function connect(){
         // Connecting to the database
@@ -38,10 +34,13 @@
         if (isLoggedin()) {
             echo $_SESSION["user"] . "<br>";
             echo '<a href="logout.php">Logout</a>';
+        } else {
+            echo '<a href="userlogin.php">Login</a>';
         }
     ?>
 
     <h2>Posting Listing Page Testing</h2> 
+    <a href="category.php">Category</a><br>
     
     <?php
         if (isLoggedin()) {

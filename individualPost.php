@@ -18,37 +18,44 @@
 
     $id = $_GET['id'];
 
-    $results = "SELECT * 
-                FROM Posting
-                WHERE postID = '$id'";
+    $results = "SELECT 
+                    * 
+                FROM 
+                    Posting
+                WHERE 
+                    postID = '$id' ";
 
 ?>
 
 <!DOCTYPE html>
 <html>
 <body>
+    
     <?php
         if (isLoggedin()) {
             echo $_SESSION["user"] . "<br>";
             echo '<a href="logout.php">Logout</a>';
+        } else {
+            echo '<a href="userlogin.php">Login</a>';
         }
     ?>
 
-<h2>Individual Posting Page Test</h2> 
+    <h2>Individual Posting Page Test</h2> 
+    <a href="category.php">Category</a><br>
     
-<?php
-    // Connecting to the database
-    $list = connect();
-    $row = mysqli_query($list, $results);
+    <?php
+        // Connecting to the database
+        $list = connect();
+        $row = mysqli_query($list, $results);
 
-    while($sqlRow = mysqli_fetch_assoc($row))
-    {
-        echo "Title: " . $sqlRow['title'] . "<br>";
-        echo "Body: " . $sqlRow['body'] . "<br>";
-        echo "Post ID: " . $sqlRow['postID'];
-    }
-    mysqli_close($list);
-?>
+        while($sqlRow = mysqli_fetch_assoc($row))
+        {
+            echo "Title: " . $sqlRow['title'] . "<br>";
+            echo "Body: " . $sqlRow['body'] . "<br>";
+            echo "Post ID: " . $sqlRow['postID'];
+        }
+        mysqli_close($list);
+    ?>
 
 </body>
 </html>

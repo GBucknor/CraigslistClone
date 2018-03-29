@@ -30,6 +30,7 @@
     ?>
 
 <h2>Individual Posting Testing</h2>
+    <a href="category.php">Category</a><br>
 
 <form action="" method="post">
     Title:<br>
@@ -94,23 +95,24 @@
         $sql = "INSERT INTO Posting (postID, title, specLoc, postCode, body, contactOp, phoneNum, contactName, catPostID)
         VALUES (NULL,'$title', '$specLoc', '$postal', '$body2', '$phoneOp', '$phoneNum', '$contact', '$category')";
 
-        sqlCheck($list, $sql, $title);
+        sqlCheck($list, $sql, $title, $category);
     }
     
     // Checking to see if we actually placed the data into the database
-    function sqlCheck($list, $sql, $title){
+    function sqlCheck($list, $sql, $title, $category){
         if (!(mysqli_query($list, $sql))) {
             echo "Error: " . $sql . "<br>" . mysqli_error($list). "<br>";
             mysqli_close($list);
             die();
         } else {
-            redirect();
+            redirect($title, $category);
         }
     }
     
-    function redirect(){
+    function redirect($title, $category){
+        $list = connect();
         
-        $sql = "
+        $sql2 = "
         SELECT
             postID
         FROM
@@ -118,10 +120,11 @@
         WHERE
             catPostID = '$category' AND title = '$title' limit 1";
         
-        $results = mysqli_query($list, $sql);
+        $results = mysqli_query($list, $sql2);
 
-        $value = mysqli_fetch_object($result);
-        header("Location: individualPost.php?id=$value");
+        $value = mysqli_fetch_assoc($results);
+        $i = $value['postID'];
+        header("Location: individualPost.php?id=$i");
     }
 ?>
     
