@@ -17,6 +17,7 @@ CREATE TABLE Posting
     ,contactOp      VARCHAR(15)
     ,phoneNum       VARCHAR(15)
     ,contactName    VARCHAR(30)
+    ,catPostID      VARCHAR(50)     NOT NULL
 );
 
 CREATE TABLE Categories
@@ -68,3 +69,14 @@ VALUES
     ,(NULL, "houseswap")
     ,(NULL, "housingwanted")
     ,(NULL, "activites");
+
+
+ALTER TABLE Posting
+ADD catPostID VARCHAR(50)     NOT NULL;
+
+DELETE FROM Posting
+WHERE postID=2;
+
+UPDATE Posting
+SET postID = 2
+WHERE postID = 3;

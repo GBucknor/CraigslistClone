@@ -11,11 +11,12 @@ require_once('mysqli_connect.php');
         $contact = $_POST['contact'];
         $body = $_POST['Text1'];
         $body2 = htmlentities($body, ENT_QUOTES, "UTF-8");
+        $category = $_POST['category'];
    
         $list = connect();
         
-        $sql = "INSERT INTO Posting (postID, title, specLoc, postCode, body, contactOp, phoneNum, contactName)
-        VALUES (NULL,'$title', '$specLoc', '$postal', '$body2', '$phoneOp', '$phoneNum', '$contact')";
+        $sql = "INSERT INTO Posting (postID, title, specLoc, postCode, body, contactOp, phoneNum, contactName, catPostID)
+        VALUES (NULL,'$title', '$specLoc', '$postal', '$body2', '$phoneOp', '$phoneNum', '$contact', '$category')";
         
         sqlCheck($list, $sql);
         

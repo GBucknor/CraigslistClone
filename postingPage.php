@@ -23,7 +23,7 @@
 
 <h2>Individual Posting Testing</h2>
 
-<form action="postingScript.php" method="post">
+<form action="postScript.php" method="post">
     Title:<br>
     <input type="text" name="title">
     <br>
@@ -42,10 +42,10 @@
             Categories";
     
         $rows = mysqli_query($list, $sql);
-        echo "<select>";
+        echo "<select name='category'>";
         while($row = mysqli_fetch_assoc($rows))
         {
-            echo "<option value=" . $row['catID'] . ">" . $row['catName'] . "</option>";
+            echo "<option value=" . $row['catName'] . ">" . $row['catName'] . "</option>";
         }
         echo "</select>"; 
     ?>

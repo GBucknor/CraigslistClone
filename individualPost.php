@@ -14,14 +14,12 @@
             return $list;
         }
     }
-    $id = $_GET['id'];
 
-    $sql = "SELECT
-            title
-        FROM
-            Posting
-        WHERE
-            catPostID = '$id'";
+echo $_SERVER['PHP_SELF']."?id=".$_GET['id'];
+
+    $results = "SELECT * 
+                FROM Posting
+                WHERE postID = " . $_GET['postID'];
 
 ?>
 
@@ -29,24 +27,15 @@
 <html>
 <body>
 
-<h2>Posting Listing Page Testing</h2> 
+<h2>Individual Posting Page Test</h2> 
 <p>testdsfsdf</p>
     
 <?php
     // Connecting to the database
     $list = connect();
-    $row = mysqli_query($list, $sql);
+    $row = mysqli_query($list, $results);
 
-    if($row){
-        while($sqlRow = mysqli_fetch_assoc($row))
-        {
-              echo '<a href="individualPost.php?id=' . $sqlRow['title'] . '">' . $sqlRow['title'] . "</a><br>";
-           // echo '<h3><a href="individualPist.php?id=' . $row['postID'] . '">' . $row['title'] . '</a><h3>';
-        }
-    } else {
-        echo "Nothing here";
-    }
-
+    $row['title'];
     mysqli_close($list);
 ?>
 

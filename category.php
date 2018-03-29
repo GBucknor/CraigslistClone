@@ -28,16 +28,15 @@
     $list = connect();
     
         $sql = "SELECT
-                catID,
-                catName
-            FROM
-                Categories";
+                    catName
+                FROM
+                    Categories";
     
     $row = mysqli_query($list, $sql);
 
     while($sqlRow = mysqli_fetch_assoc($row))
     {
-        echo "<a href='postListing.php?id='" . $sqlRow['catID'] . ">".$sqlRow['catName']."</a><br>";
+        echo '<a href="postListing.php?id=' . $sqlRow['catName'] . '">' . $sqlRow['catName'] . '</a><br>';
     }
     mysqli_close($list);
 ?>
