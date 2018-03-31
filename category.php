@@ -46,7 +46,7 @@
             <ul class="breadcrumbs">
                 <li class="crumb area">
                     <p>
-                        <a href="/">vancouver, BC</a>
+                        <a href="#">vancouver, BC</a>
                     </p>
                 </li>
             </ul>
@@ -54,7 +54,39 @@
         <span class="linklike show-wide-header">...</span>
     </header>
     
-    <?php
+    
+    <nav id="topban" class="regular">
+        <div class="regular-area">
+            <h2 class="area">vancouver, BC</h2>
+            <ul class="sublinks">   
+                <li><a href="#" title="vancouver">van</a></li>
+                <li><a href="#" title="north shore">nvn</a></li>
+                <li><a href="#" title="burnaby/newwest">bnc</a></li>
+                <li><a href="#" title="delta/surrey/langley">rds</a></li>
+                <li><a href="#" title="tricities/pitt/maple">pml</a></li>
+                <li><a href="#" title="richmond">rch</a></li>
+            </ul>   
+        </div>
+
+        <div class="enter-area">
+            <input type="text" class="subarea-input flatinput" data-autocomplete="subarea" value="">
+        </div>
+        <div class="custom-area no-name">
+            <h2 class="area"></h2>
+            <div class="radius-info">
+                within <span class="distance"></span> mi of <span class="postal"></span>
+            </div>
+            <div class="exit-subarea">×</div>
+        </div>
+    </nav>
+    
+       <div id="leftbar">
+            <div id="logo">
+                <a href="https://www.craigslist.org/about/sites">craigslist</a>
+                <sup><a href="https://www.craigslist.org/about/sites#CA">ca</a></sup>
+           </div>
+           
+            <?php
         if (isLoggedin()) {
             echo $_SESSION["user"];
             echo '<li><a href="logout.php">Logout</a></li>';
@@ -63,40 +95,24 @@
         }
     ?>
 
-    <h2>Category Page Testing</h2> 
+        <h2>Category Page Testing</h2> 
+
+        <?php
+            if (isLoggedin()) {
+                echo '<a href="postingPage.php">Post your listing!</a>';
+                echo '<br><br>';
+            }
+        ?>
+    </div>
     
-    <?php
-        if (isLoggedin()) {
-            echo '<a href="postingPage.php">Post your listing!</a>';
-            echo '<br><br>';
-        }
-    ?>
-    
-    <?php
-        // Connecting to the database
-        $list = connect();
-
-            $sql = "SELECT
-                        catName
-                    FROM
-                        Categories";
-
-        $row = mysqli_query($list, $sql);
-
-        while($sqlRow = mysqli_fetch_assoc($row))
-        {
-            echo '<a href="postListing.php?id=' . $sqlRow['catName'] . '">' . $sqlRow['catName'] . '</a><br>';
-        }
-        mysqli_close($list);
-    ?>
     
 <div id="center">
 <div class="community">
                 
-<div id="ccc" class="col">
-<h4 class="ban"><a href="#" class="ccc" data-alltitle="all community" data-cat="ccc"><span class="txt">community<sup class="c"></sup></span></a></h4>
-<div class="cats">
-<ul id="ccc0" class="left">
+        <div id="ccc" class="col">
+        <h4 class="ban"><a href="#" class="ccc" data-alltitle="all community" data-cat="ccc"><span class="txt">community<sup class="c"></sup></span></a></h4>
+        <div class="cats">
+        <ul id="ccc0" class="left">
 <li><a href="postListing.php?id=activities" class="act" data-cat="act"><span class="txt">activities<sup class="c"></sup></span></a></li>
 <li><a href="postListing.php?id=artists" class="ats" data-cat="ats"><span class="txt">artists<sup class="c"></sup></span></a></li>
 <li><a href="postListing.php?id=childcare" class="kid" data-cat="kid"><span class="txt">childcare<sup class="c"></sup></span></a></li>
@@ -141,9 +157,80 @@
 <li><a href="postListing.php?id=realestate" class="rts" data-cat="rts"><span class="txt">real estate<sup class="c"></sup></span></a></li>
 <li><a href="postListing.php?id=skilledtrade" class="sks" data-cat="sks"><span class="txt">skilled trade<sup class="c"></sup></span></a></li>
 <li><a href="postListing.php?id=smbizads" class="biz" data-cat="biz"><span class="txt">sm biz ads<sup class="c"></sup></span></a></li>
-<li><a href="postListing.php?id=travelvac" class="ths" data-cat="ths"><span class="txt">therapeutic<sup class="c"></sup></span></a></li>
-<li><a href="postListing.php?id=writeedtran" class="trv" data-cat="trv"><span class="txt">travel/vac<sup class="c"></sup></span></a></li>
+<li><a href="postListing.php?id=therapeutic" class="ths" data-cat="ths"><span class="txt">therapeutic<sup class="c"></sup></span></a></li>
+<li><a href="postListing.php?id=travelvac" class="trv" data-cat="trv"><span class="txt">travel/vac<sup class="c"></sup></span></a></li>
 <li><a href="postListing.php?id=writeedtran" class="wet" data-cat="wet"><span class="txt">write/ed/tran<sup class="c"></sup></span></a></li>
+</ul>
+</div>
+</div>
+    
+    
+        </div>
+        <div class="housing">         
+        <div id="hhh" class="col">
+        <h4 class="ban"><a href="#" class="hhh" data-alltitle="all housing" data-cat="hhh"><span class="txt">housing<sup class="c"></sup></span></a></h4>
+        <div class="cats">
+        <ul id="hhh0">
+<li><a href="postListing.php?id=aptshousing" class="apa" data-cat="apa"><span class="txt">apts / housing<sup class="c"></sup></span></a></li>
+<li><a href="postListing.php?id=houseswap" class="swp" data-cat="swp"><span class="txt">housing swap<sup class="c"></sup></span></a></li>
+<li><a href="postListing.php?id=housingwanted" class="hsw" data-cat="hsw"><span class="txt">housing wanted<sup class="c"></sup></span></a></li>
+<li><a href="postListing.php?id=officecom" class="off" data-cat="off"><span class="txt">office / commercial<sup class="c"></sup></span></a></li>
+<li><a href="postListing.php?id=parking" class="prk" data-cat="prk"><span class="txt">parking / storage<sup class="c"></sup></span></a></li>
+<li><a href="postListing.php?id=realsale" class="rea" data-cat="rea"><span class="txt">real estate for sale<sup class="c"></sup></span></a></li>
+<li><a href="postListing.php?id=roomsshare" class="roo" data-cat="roo"><span class="txt">rooms / shared<sup class="c"></sup></span></a></li>
+<li><a href="postListing.php?id=roomswant" class="sha" data-cat="sha"><span class="txt">rooms wanted<sup class="c"></sup></span></a></li>
+<li><a href="postListing.php?id=#" class="sub" data-cat="sub"><span class="txt">sublets / temporary<sup class="c"></sup></span></a></li>
+<li><a href="postListing.php?id=vacrentals" class="vac" data-cat="vac"><span class="txt">vacation rentals<sup class="c"></sup></span></a></li>
+</ul>
+</div>
+</div>
+            
+
+        <div id="sss" class="col">
+        <h4 class="ban"><a href="#" class="sss" data-alltitle="all for sale" data-cat="sss"><span class="txt">for sale<sup class="c"></sup></span></a></h4>
+        <div class="cats">
+        <ul id="sss0" class="left">
+<li><a href="postListing.php?id=antiques" class="ata" data-cat="ata"><span class="txt">antiques<sup class="c"></sup></span></a></li>
+<li><a href="postListing.php?id=appliances" class="ppa" data-cat="ppa"><span class="txt">appliances<sup class="c"></sup></span></a></li>
+<li><a href="postListing.php?id=artscraft" class="ara" data-cat="ara"><span class="txt">arts+crafts<sup class="c"></sup></span></a></li>
+<li><a href="postListing.php?id=arvutv" class="sna" data-cat="sna"><span class="txt">atv/utv/sno<sup class="c"></sup></span></a></li>
+<li><a href="postListing.php?id=autoparts" class="pta wta" data-cat="pta wta"><span class="txt">auto parts<sup class="c"></sup></span></a></li>
+<li><a href="postListing.php?id=aviation" class="baa" data-cat="baa"><span class="txt">baby+kid<sup class="c"></sup></span></a></li>
+<li><a href="postListing.php?id=barter" class="bar" data-cat="bar"><span class="txt">barter<sup class="c"></sup></span></a></li>
+<li><a href="postListing.php?id=beautyhlth" class="haa" data-cat="haa"><span class="txt">beauty+hlth<sup class="c"></sup></span></a></li>
+<li><a href="postListing.php?id=bikes" class="bia bip" data-cat="bia bip"><span class="txt">bikes<sup class="c"></sup></span></a></li>
+<li><a href="postListing.php?id=boats" class="boo bpa" data-cat="boo bpa"><span class="txt">boats<sup class="c"></sup></span></a></li>
+<li><a href="postListing.php?id=books" class="bka" data-cat="bka"><span class="txt">books<sup class="c"></sup></span></a></li>
+<li><a href="postListing.php?id=businesssale" class="bfa" data-cat="bfa"><span class="txt">business<sup class="c"></sup></span></a></li>
+<li><a href="postListing.php?id=carstruck" class="cta" data-cat="cta"><span class="txt">cars+trucks<sup class="c"></sup></span></a></li>
+<li><a href="postListing.php?id=cdsdvd" class="ema" data-cat="ema"><span class="txt">cds/dvd/vhs<sup class="c"></sup></span></a></li>
+<li><a href="postListing.php?id=cellphones" class="moa" data-cat="moa"><span class="txt">cell phones<sup class="c"></sup></span></a></li>
+<li><a href="postListing.php?id=clothesacc" class="cla" data-cat="cla"><span class="txt">clothes+acc<sup class="c"></sup></span></a></li>
+<li><a href="postListing.php?id=collectibles" class="cba" data-cat="cba"><span class="txt">collectibles<sup class="c"></sup></span></a></li>
+<li><a href="postListing.php?id=computerssale" class="sya syp" data-cat="sya syp"><span class="txt">computers<sup class="c"></sup></span></a></li>
+<li><a href="postListing.php?id=electronics" class="ela" data-cat="ela"><span class="txt">electronics<sup class="c"></sup></span></a></li>
+<li><a href="postListing.php?id=farmsales" class="gra" data-cat="gra"><span class="txt">farm+garden<sup class="c"></sup></span></a></li>
+</ul>
+<ul id="sss1" class="mc">
+<li><a href="postListing.php?id=free" class="zip" data-cat="zip"><span class="txt">free<sup class="c"></sup></span></a></li>
+<li><a href="postListing.php?id=furniture" class="fua" data-cat="fua"><span class="txt">furniture<sup class="c"></sup></span></a></li>
+<li><a href="postListing.php?id=garagessale" class="gms" data-cat="gms"><span class="txt">garage sale<sup class="c"></sup></span></a></li>
+<li><a href="postListing.php?id=general" class="foa" data-cat="foa"><span class="txt">general<sup class="c"></sup></span></a></li>
+<li><a href="postListing.php?id=heavyequip" class="hva" data-cat="hva"><span class="txt">heavy equip<sup class="c"></sup></span></a></li>
+<li><a href="postListing.php?id=household" class="hsa" data-cat="hsa"><span class="txt">household<sup class="c"></sup></span></a></li>
+<li><a href="postListing.php?id=jewelry" class="jwa" data-cat="jwa"><span class="txt">jewelry<sup class="c"></sup></span></a></li>
+<li><a href="postListing.php?id=materials" class="maa" data-cat="maa"><span class="txt">materials<sup class="c"></sup></span></a></li>
+<li><a href="postListing.php?id=motorcycles" class="mca mpa" data-cat="mca mpa"><span class="txt">motorcycles<sup class="c"></sup></span></a></li>
+<li><a href="postListing.php?id=musicinstr" class="msa" data-cat="msa"><span class="txt">music instr<sup class="c"></sup></span></a></li>
+<li><a href="postListing.php?id=photovid" class="pha" data-cat="pha"><span class="txt">photo+video<sup class="c"></sup></span></a></li>
+<li><a href="postListing.php?id=rvscamp" class="rva" data-cat="rva"><span class="txt">rvs+camp<sup class="c"></sup></span></a></li>
+<li><a href="postListing.php?id=sporting" class="sga" data-cat="sga"><span class="txt">sporting<sup class="c"></sup></span></a></li>
+<li><a href="postListing.php?id=tickets" class="tia" data-cat="tia"><span class="txt">tickets<sup class="c"></sup></span></a></li>
+<li><a href="postListing.php?id=tools" class="tla" data-cat="tla"><span class="txt">tools<sup class="c"></sup></span></a></li>
+<li><a href="postListing.php?id=toygames" class="taa" data-cat="taa"><span class="txt">toys+games<sup class="c"></sup></span></a></li>
+<li><a href="postListing.php?id=trailers" class="tra" data-cat="tra"><span class="txt">trailers<sup class="c"></sup></span></a></li>
+<li><a href="postListing.php?id=videogaming" class="vga" data-cat="vga"><span class="txt">video gaming<sup class="c"></sup></span></a></li>
+<li><a href="postListing.php?id=wantedsales" class="waa" data-cat="waa"><span class="txt">wanted<sup class="c"></sup></span></a></li>
 </ul>
 </div>
 </div>
