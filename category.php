@@ -239,7 +239,21 @@
 </div>
 </div>
         
-</section>  
+</section> 
+    
+    <footer>
+        <ul class="clfooter">
+            <li>©  <span class="desktop">craigslist</span><span class="mobile">CL</span></li>
+            <li><a href="#">help</a></li>
+            <li><a href="#">safety</a></li>
+            <li class="desktop"><a href="#">privacy</a></li>
+            <li class="desktop"><a href="#">feedback</a></li>
+            <li class="desktop"><a href="#">cl jobs</a></li>
+            <li><a href="#">terms</a><sup class="neu">new</sup></li>
+            <li><a href="#">about</a></li>
+        </ul>
+    </footer>
+    
 </div>
 </body>
 </html>

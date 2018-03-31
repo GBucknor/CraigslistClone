@@ -65,6 +65,7 @@ VALUES
     ,(NULL, "therapeutic")
     ,(NULL, "travelvac")
     ,(NULL, "writeedtran")
+    
     ,(NULL, "aptshousing")
     ,(NULL, "houseswap")
     ,(NULL, "housingwanted")
@@ -74,6 +75,7 @@ VALUES
     ,(NULL, "roomsshare")
     ,(NULL, "roomswant")
     ,(NULL, "vacrentals")
+    
     ,(NULL, "antiques")
     ,(NULL, "appliances")
     ,(NULL, "artscraft")
