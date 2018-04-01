@@ -234,6 +234,49 @@
 </ul>
 </div>
 </div>
+            
+        </div>
+        <div class="jobs">      
+        <div id="jjj" class="col">
+        <h4 class="ban"><a href="#" class="jjj" data-alltitle="all jobs" data-cat="jjj"><span class="txt">jobs<sup class="c"></sup></span></a></h4>
+        <div class="cats">
+        <ul id="jjj0">
+<li><a href="postListing.php?id=accfinance" class="acc" data-cat="acc"><span class="txt">accounting+finance<sup class="c"></sup></span></a></li>
+<li><a href="postListing.php?id=adminoffice" class="ofc" data-cat="ofc"><span class="txt">admin / office<sup class="c"></sup></span></a></li>
+<li><a href="postListing.php?id=archeng" class="egr" data-cat="egr"><span class="txt">arch / engineering<sup class="c"></sup></span></a></li>
+<li><a href="postListing.php?id=artmedia" class="med" data-cat="med"><span class="txt">art / media / design<sup class="c"></sup></span></a></li>
+<li><a href="postListing.php?id=biotech" class="sci" data-cat="sci"><span class="txt">biotech / science<sup class="c"></sup></span></a></li>
+<li><a href="postListing.php?id=businessmgm" class="bus" data-cat="bus"><span class="txt">business / mgmt<sup class="c"></sup></span></a></li>
+<li><a href="postListing.php?id=customerserv" class="csr" data-cat="csr"><span class="txt">customer service<sup class="c"></sup></span></a></li>
+<li><a href="postListing.php?id=education" class="edu" data-cat="edu"><span class="txt">education<sup class="c"></sup></span></a></li>
+<li><a href="postListing.php?id=foodbev" class="fbh" data-cat="fbh"><span class="txt">food / bev / hosp<sup class="c"></sup></span></a></li>
+<li><a href="postListing.php?id=generallab" class="lab" data-cat="lab"><span class="txt">general labor<sup class="c"></sup></span></a></li>
+<li><a href="postListing.php?id=govern" class="gov" data-cat="gov"><span class="txt">government<sup class="c"></sup></span></a></li>
+<li><a href="postListing.php?id=humanres" class="hum" data-cat="hum"><span class="txt">human resources<sup class="c"></sup></span></a></li>
+<li><a href="postListing.php?id=interteng" class="eng" data-cat="eng"><span class="txt">internet engineers<sup class="c"></sup></span></a></li>
+<li><a href="postListing.php?id=paralegal" class="lgl" data-cat="lgl"><span class="txt">legal  /  paralegal<sup class="c"></sup></span></a></li>
+<li><a href="postListing.php?id=manufacture" class="mnu" data-cat="mnu"><span class="txt">manufacturing<sup class="c"></sup></span></a></li>
+<li><a href="postListing.php?id=marketing" class="mar" data-cat="mar"><span class="txt">marketing / pr / ad<sup class="c"></sup></span></a></li>
+<li><a href="postListing.php?id=medicaljob" class="hea" data-cat="hea"><span class="txt">medical / health<sup class="c"></sup></span></a></li>
+<li><a href="postListing.php?id=nonprofit" class="npo" data-cat="npo"><span class="txt">nonprofit sector<sup class="c"></sup></span></a></li>
+<li><a href="postListing.php?id=estatejob" class="rej" data-cat="rej"><span class="txt">real estate<sup class="c"></sup></span></a></li>
+<li><a href="postListing.php?id=wholesale" class="ret" data-cat="ret"><span class="txt">retail / wholesale<sup class="c"></sup></span></a></li>
+<li><a href="postListing.php?id=salejob" class="sls" data-cat="sls"><span class="txt">sales / biz dev<sup class="c"></sup></span></a></li>
+<li><a href="postListing.php?id=salonjob" class="spa" data-cat="spa"><span class="txt">salon / spa / fitness<sup class="c"></sup></span></a></li>
+<li><a href="postListing.php?id=securityjob" class="sec" data-cat="sec"><span class="txt">security<sup class="c"></sup></span></a></li>
+<li><a href="postListing.php?id=skilltrade" class="trd" data-cat="trd"><span class="txt">skilled trade / craft<sup class="c"></sup></span></a></li>
+<li><a href="postListing.php?id=software" class="sof" data-cat="sof"><span class="txt">software / qa / dba<sup class="c"></sup></span></a></li>
+<li><a href="postListing.php?id=netjob" class="sad" data-cat="sad"><span class="txt">systems / network<sup class="c"></sup></span></a></li>
+<li><a href="postListing.php?id=techjob" class="tch" data-cat="tch"><span class="txt">technical support<sup class="c"></sup></span></a></li>
+<li><a href="postListing.php?id=transjob" class="trp" data-cat="trp"><span class="txt">transport<sup class="c"></sup></span></a></li>
+<li><a href="postListing.php?id=tvjob" class="tfr" data-cat="tfr"><span class="txt">tv / film / video<sup class="c"></sup></span></a></li>
+<li><a href="postListing.php?id=webjob" class="web" data-cat="web"><span class="txt">web / info design<sup class="c"></sup></span></a></li>
+<li><a href="postListing.php?id=writejob" class="wri" data-cat="wri"><span class="txt">writing / editing<sup class="c"></sup></span></a></li>
+<li><a href="postListing.php?id=ETC" class="etc" data-cat="etc"><span class="txt">[ETC]<sup class="c"></sup></span></a></li>
+<li><a href="postListing.php?id=partime"><span class="txt">[ part-time ]<sup class="c"></sup></span></a></li>
+</ul>
+</div>
+</div>
     
     
 </div>
