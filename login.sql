@@ -149,7 +149,18 @@ VALUES
     ,(NULL, "webjob")
     ,(NULL, "writejob")
     ,(NULL, "ETC")
-    ,(NULL, "partime");
+    ,(NULL, "partime")
+    
+    ,(NULL, "computergig")
+    ,(NULL, "creativegig")
+    ,(NULL, "crewgig")
+    ,(NULL, "domgig")
+    ,(NULL, "eventgig")
+    ,(NULL, "labgig")
+    ,(NULL, "talgig")
+    ,(NULL, "writegig")
+    
+    ,(NULL, "resumes");
 
 
 ALTER TABLE Posting

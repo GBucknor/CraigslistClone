@@ -88,14 +88,11 @@
            
             <?php
         if (isLoggedin()) {
-            echo $_SESSION["user"];
-            echo '<li><a href="logout.php">Logout</a></li>';
+            echo "User: " . $_SESSION["user"] . " " . '<a href="logout.php">Logout</a><br>';
         } else {
             echo '<a href="userlogin.php">Login</a>';
         }
     ?>
-
-        <h2>Category Page Testing</h2> 
 
         <?php
             if (isLoggedin()) {
@@ -276,6 +273,30 @@
 <li><a href="postListing.php?id=partime"><span class="txt">[ part-time ]<sup class="c"></sup></span></a></li>
 </ul>
 </div>
+</div>
+            
+        <div id="ggg" class="col">
+        <h4 class="ban"><a href="#" class="ggg" data-alltitle="all gigs" data-cat="ggg"><span class="txt">gigs<sup class="c"></sup></span></a></h4>
+        <div class="cats">
+        <ul id="ggg0" class="left">
+<li><a href="postListing.php?id=computergig" class="cpg" data-cat="cpg"><span class="txt">computer<sup class="c"></sup></span></a></li>
+<li><a href="postListing.php?id=creativegig" class="crg" data-cat="crg"><span class="txt">creative<sup class="c"></sup></span></a></li>
+<li><a href="postListing.php?id=crewgig" class="cwg" data-cat="cwg"><span class="txt">crew<sup class="c"></sup></span></a></li>
+<li><a href="postListing.php?id=domgig" class="dmg" data-cat="dmg"><span class="txt">domestic<sup class="c"></sup></span></a></li>
+</ul>
+<ul id="ggg1" class="mc">
+<li><a href="postListing.php?id=eventgig" class="evg" data-cat="evg"><span class="txt">event<sup class="c"></sup></span></a></li>
+<li><a href="postListing.php?id=labgig" class="lbg" data-cat="lbg"><span class="txt">labor<sup class="c"></sup></span></a></li>
+<li><a href="postListing.php?id=talgig" class="tlg" data-cat="tlg"><span class="txt">talent<sup class="c"></sup></span></a></li>
+<li><a href="postListing.php?id=writegig" class="wrg" data-cat="wrg"><span class="txt">writing<sup class="c"></sup></span></a></li>
+</ul>
+</div>
+</div>
+
+        <div id="rrr" class="col">
+        <h4 class="ban"><a href="postListing.php?id=resumes" class="rrr" data-alltitle="all resumes" data-cat="rrr"><span class="txt">resumes<sup class="c"></sup></span></a></h4>
+        <div class="cats">
+        </div>
 </div>
     
     
