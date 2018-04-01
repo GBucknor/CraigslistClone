@@ -24,31 +24,87 @@
 
 <!DOCTYPE html>
 <html>
-<body>
+    
+    <head>
+        <title>craigslist - account log in</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        
+        <!-- Craigslist Tab Icon -->
+        <link rel="icon" href="Images/logo.png">
+        
+        <!-- CSS Files -->
+        <link rel="stylesheet" href="CSS/Base.css" type="text/css">
+    </head>
+    
+<body class=" desktop w1024">
 
-<h2>Loging Testing</h2>
+<section class="page-container">
+    
+    <header class="global-header ">
+       <a class="header-logo" name="logoLink" href="category.php">CL</a>
 
-<h2>Login</h2>
-<form action=" " method="post">
-  User:<br>
-  <input type="text" name="userlogin">
-  <br>
-  Password:<br>
-  <input type="password" name="userpass">
-  <br><br>
-  <input type="submit" name="login" value="Login">
-</form> 
-  
-<h2>Signup</h2>
-<form action=" " method="post">
-  User:<br>
-  <input type="text" name="usersignup">
-  <br>
-  Password:<br>
-  <input type="password" name="signuppass">
-  <br><br>
-  <input type="submit" name="signup" value="signup">
-</form> 
+        <nav class="breadcrumbs-container">
+            <ul class="breadcrumbs">
+                <li class="crumb plain-message">
+                    <p>account log in</p>
+                </li>
+            </ul>
+        </nav>
+    </header> 
+    
+<section class="body">
+    <div class="login-page-boxes">
+        <div class="accountform login-box">
+            <h1 class="accountform-banner">Log in</h1>
+            <form action="" method="POST" class="loginform">
+                <input type="hidden" name="step" value="confirmation">
+                <input type="hidden" name="rt" value="L">
+                <input type="hidden" name="rp" value="/login/home">
+                <input type="hidden" name="t" value="1521043560">
+                <input type="hidden" name="p" value="0">
+                <input type="hidden" name="whichForm" value="login">
+
+                <div class="accountform-field">
+                    <label for="inputEmailHandle">Email / Handle</label>
+                    <input type="text" id="inputEmailHandle" name="userlogin" value="" required="">
+                </div>
+                <div class="accountform-field">
+                    <label for="inputPassword">Password</label>
+                    <input id="inputPassword" type="password" name="userpass" required="" autocomplete="off">
+                </div>
+                <div class="accountform-actions">
+                    <button type="submit" name="login" class="accountform-btn">Log in</button>
+                </div>
+            </form>
+        </div>
+
+        <p class="box-conjunction">or</p>
+
+        <div class="accountform login-page-box">
+            <h1 class="accountform-banner">Create an account</h1>
+            <form action="signupScript.php" method="POST">
+                <input type="hidden" name="rp" value="/login/home">
+                <input type="hidden" name="rt" value="L">
+                <input type="hidden" name="t" value="1521043560">
+                <input type="hidden" name="whichForm" value="createAccount">
+
+
+                <div class="accountform-field">
+                    <label for="emailAddress">Email</label>
+                    <input type="email" id="emailAddress" name="usersignup" value="" maxlength="64" required="">
+                    </div>
+                <div class="accountform-field">
+                    <label for="inputPassword">Password</label>
+                    <input id="inputPassword" type="password" name="signuppass" required="" autocomplete="off">
+                </div>
+                <div class="accountform-actions">
+                    <button type="submit" name="signup" class="accountform-btn">Create account</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>
     
 <?php
         if(isset($_POST['login'])) {
@@ -120,6 +176,20 @@
         die();
     }
 ?>
+    
+    <footer>
+        <ul class="clfooter">
+            <li>©  <span class="desktop">craigslist</span><span class="mobile">CL</span></li>
+            <li><a href="#">help</a></li>
+            <li><a href="#">safety</a></li>
+            <li class="desktop"><a href="#">privacy</a></li>
+            <li class="desktop"><a href="#">feedback</a></li>
+            <li class="desktop"><a href="#">cl jobs</a></li>
+            <li><a href="#">terms</a><sup class="neu">new</sup></li>
+            <li><a href="#">about</a></li>
+        </ul>
+    </footer>
+</section>
 
 </body>
 </html>
