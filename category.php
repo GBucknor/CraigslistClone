@@ -86,20 +86,14 @@
                 <sup><a href="https://www.craigslist.org/about/sites#CA">ca</a></sup>
            </div>
            
-            <?php
+    <?php
         if (isLoggedin()) {
-            echo "User: " . $_SESSION["user"] . " " . '<a href="logout.php">Logout</a><br>';
+            echo "User: " . $_SESSION["user"] . " " . '<a href="logout.php">Logout</a><br><br>';
         } else {
-            echo '<a href="userlogin.php">Login</a>';
+            echo '<a href="userlogin.php">Login</a><br><br>';
         }
+        echo '<a href="postingPage.php">Post your listing!</a><br><br>';
     ?>
-
-        <?php
-            if (isLoggedin()) {
-                echo '<a href="postingPage.php">Post your listing!</a>';
-                echo '<br><br>';
-            }
-        ?>
     </div>
     
     
