@@ -39,48 +39,51 @@
         <link rel="icon" href="Images/logo.png">
 
         <!-- CSS Files -->
-        <link rel="stylesheet" href="CSS/search.css" type="text/css">
+        <link rel="stylesheet" href="CSS/cl.css" type="text/css">
+        <link rel="stylesheet" href="CSS/posting.css" type="text/css">
     </head>
     
 <body class="posting en desktop w1024">
     
-    <section class="page-container">
-        <div class="bglogo"></div>
-<header class="global-header wide">
+<section class="page-container">
     
-   <a class="header-logo" name="logoLink" href="category.php">CL</a>
-
-    <nav class="breadcrumbs-container">
-        <ul class="breadcrumbs">
-            <li class="crumb area">
-                <p>
-                    <a href="category.php">vancouver, BC</a>
-                </p>
-            </li>
-        </ul>  
-    </nav>
+    <div class="bglogo"></div>
     
-<div class="userlinks">
-    <ul class="user-actions">
-        <li class="user post">
-            <a href="postingPage.php">post</a>
-        </li>
-        <li class="user account">
-            <a href="#">account</a>
-        </li>
-        <li class="user account">
-        <?php
-            if (isLoggedin()) {
-                echo '<a href="logout.php">Logout</a>';
-            } else {
-                echo '<a href="userlogin.php">Login</a>';
-            }
-        ?>
-        </li>
-    </ul>
-</div>
+    <header class="global-header wide">
 
-</header>
+       <a class="header-logo" name="logoLink" href="category.php">CL</a>
+
+        <nav class="breadcrumbs-container">
+            <ul class="breadcrumbs">
+                <li class="crumb area">
+                    <p>
+                        <a href="category.php">vancouver, BC</a>
+                    </p>
+                </li>
+            </ul>  
+        </nav>
+
+        <div class="userlinks">
+            <ul class="user-actions">
+                <li class="user post">
+                    <a href="postingPage.php">post</a>
+                </li>
+                <li class="user account">
+                    <a href="#">account</a>
+                </li>
+                <li class="user account">
+                <?php
+                    if (isLoggedin()) {
+                        echo '<a href="logout.php">Logout</a>';
+                    } else {
+                        echo '<a href="userlogin.php">Login</a>';
+                    }
+                ?>
+                </li>
+            </ul>
+        </div>
+        
+    </header>
     
     <?php
         // Connecting to the database
@@ -100,40 +103,38 @@
         </span>
     </h2>
         
-    <section id="postingbody">
-        <?php  echo $sqlRow['body']; ?>
-    </section>
-
-    <ul class="notices">
-        <li>Principals only. Recruiters, please don't contact this job poster.</li>
-        <li>do NOT contact us with unsolicited services or offers</li>
-    </ul>
-        
-        
     <section class="userbody">
+        <section id="postingbody">
+            <?php  echo $sqlRow['body']; ?>
+        </section>
 
-    <div class="postinginfos">
-        <p class="postinginfo">
-            <?php echo "Post ID: " . $sqlRow['postID']; ?> 
-        </p>
-        <p class="postinginfo reveal" style="opacity: 1;">
-            posted: 
-            <time class="date timeago" datetime="2018-04-01T08:38:41-0700" title="2018-04-01  8:38am">
-                about an hour ago
-            </time>
-        </p>
-        <p class="postinginfo reveal" style="opacity: 1;">
-            updated: 
-            <time class="date timeago" datetime="2018-04-01T08:40:03-0700" title="2018-04-01  8:40am">
-                about an hour ago
-            </time>
-        </p>
-    </div>
+        <ul class="notices">
+            <li>Principals only. Recruiters, please don't contact this job poster.</li>
+            <li>do NOT contact us with unsolicited services or offers</li>
+        </ul>
 
-    <?php          
-        }
-        mysqli_close($list);
-    ?>
+        <div class="postinginfos">
+            <p class="postinginfo">
+                <?php echo "Post ID: " . $sqlRow['postID']; ?> 
+            </p>
+            <p class="postinginfo reveal" style="opacity: 1;">
+                posted: 
+                <time class="date timeago" datetime="2018-04-01T08:38:41-0700" title="2018-04-01  8:38am">
+                    about an hour ago
+                </time>
+            </p>
+            <p class="postinginfo reveal" style="opacity: 1;">
+                updated: 
+                <time class="date timeago" datetime="2018-04-01T08:40:03-0700" title="2018-04-01  8:40am">
+                    about an hour ago
+                </time>
+            </p>
+        </div>
+
+        <?php          
+            }
+            mysqli_close($list);
+        ?>
     </section>
         
     <footer>
@@ -149,7 +150,7 @@
         </ul>
     </footer>
 
-    </section>
+</section>
 </section>
 </body>
 </html>

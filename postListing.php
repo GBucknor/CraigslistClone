@@ -40,6 +40,7 @@
 
         <!-- CSS Files -->
         <link rel="stylesheet" href="CSS/cl.css" type="text/css">
+        <link rel="stylesheet" href="CSS/search.css" type="text/css">
     </head>
     
 <body class="posting en desktop w1024">
@@ -81,7 +82,8 @@
     </div>
 </header>
         
-    <section class="content">
+    <section class="body"> 
+    <section id="postingbody">
     
     <?php
         // Connecting to the database
@@ -94,9 +96,8 @@
 
         mysqli_close($list);
     ?>
-    <br>
-    </section>
         
+    </section>
     <footer>
         <ul class="clfooter">
             <li>©  <span class="desktop">craigslist</span><span class="mobile">CL</span></li>
@@ -110,6 +111,7 @@
         </ul>
     </footer>
         
+    </section>
     </section>  
 </body>
 </html>

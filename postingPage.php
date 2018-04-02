@@ -1,4 +1,5 @@
 <?php
+ob_start();
     session_start();
     require_once('mysqli_connect.php');
     include 'functions.php';
@@ -15,7 +16,6 @@
         return $list;
     }
 }
-
 ?>
 
 <!DOCTYPE html>
@@ -30,17 +30,17 @@
     ?>
 
 <h2>Individual Posting Testing</h2>
-    <a href="category.php">Category</a><br>
 
 <form action="" method="post">
-    Title:<br>
+    Title<br>
     <input type="text" name="title">
     <br>
     Specific Location<br>
     <input type="text" name="specLoc">
     <br>
-    Category:
-    <?php
+    Category
+
+        <?php
         // Connecting to the database
         $list = connect();
     
@@ -58,6 +58,7 @@
         }
         echo "</select>"; 
     ?>
+    
     <br>
     Postal Code:<br>
     <input type="text" name="postal">
@@ -110,6 +111,7 @@
     }
     
     function redirect($title, $category){
+        
         $list = connect();
         
         $sql2 = "
@@ -122,9 +124,10 @@
         
         $results = mysqli_query($list, $sql2);
 
-        $value = mysqli_fetch_assoc($results);
-        $i = $value['postID'];
+        $values = mysqli_fetch_assoc($results);
+        $i = $values['postID'];
         header("Location: individualPost.php?id=$i");
+        exit();
     }
 ?>
     
