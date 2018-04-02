@@ -29,19 +29,20 @@
 
 <!DOCTYPE html>
 <html>
-<body class="posting en desktop w1024">
     
     <head>
         <title>craigslist - Vancouver</title>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width,initial-scale=1">
-        
+
         <!-- Craigslist Tab Icon -->
         <link rel="icon" href="Images/logo.png">
-        
+
         <!-- CSS Files -->
-        <link rel="stylesheet" href="CSS/postings.css" type="text/css">
+        <link rel="stylesheet" href="CSS/search.css" type="text/css">
     </head>
+    
+<body class="posting en desktop w1024">
     
     <section class="page-container">
         <div class="bglogo"></div>
