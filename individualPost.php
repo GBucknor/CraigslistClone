@@ -92,7 +92,7 @@
 
         while($sqlRow = mysqli_fetch_assoc($row))
         {         
-        ?>
+    ?>
         
 <section class="body">    
     <h2 class="postingtitle">

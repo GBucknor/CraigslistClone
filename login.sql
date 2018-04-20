@@ -160,7 +160,71 @@ VALUES
     ,(NULL, "talgig")
     ,(NULL, "writegig")
     
-    ,(NULL, "resumes");
+    ,(NULL, "resumes")
+    
+    ,(NULL, "android")
+    ,(NULL, "apple")
+    ,(NULL, "arts")
+    ,(NULL, "atheist")
+    ,(NULL, "autos")
+    ,(NULL, "beautyF")
+    ,(NULL, "bikesF")
+    ,(NULL, "celebs") 
+    ,(NULL, "compF")
+    ,(NULL, "cosmos")
+    ,(NULL, "craft")
+    ,(NULL, "diet")
+    ,(NULL, "divorce")
+    ,(NULL, "dying")
+    ,(NULL, "eco")
+    ,(NULL, "educ")
+    ,(NULL, "elder") 
+    ,(NULL, "feedbk")
+    
+    ,(NULL, "film") 
+    ,(NULL, "fitness")
+    ,(NULL, "fixit")
+    ,(NULL, "food")
+    ,(NULL, "frugal")
+    ,(NULL, "gamingF")
+    ,(NULL, "gardenF")
+    ,(NULL, "haiku")
+    ,(NULL, "help")
+    ,(NULL, "history") 
+    ,(NULL, "housingF")
+    
+    ,(NULL, "jobsF") 
+    ,(NULL, "jokeF")
+    ,(NULL, "legalF")
+    ,(NULL, "linuxF")
+    ,(NULL, "manners")
+    ,(NULL, "marriage")
+    ,(NULL, "moneyF")
+    ,(NULL, "music")
+    ,(NULL, "open")
+    ,(NULL, "outdoors") 
+    ,(NULL, "over50")
+    
+    ,(NULL, "parent") 
+    ,(NULL, "petF")
+    ,(NULL, "philo")
+    ,(NULL, "photoF")
+    ,(NULL, "politicsF")
+    ,(NULL, "psych")
+    ,(NULL, "recover")
+    ,(NULL, "religion")
+    ,(NULL, "educ")
+    ,(NULL, "elder") 
+    ,(NULL, "feedbk");
+    
+CREATE TABLE topics (
+    topic_id                INT(8)         NOT NULL AUTO_INCREMENT
+    ,topic_subject          VARCHAR(255)   NOT NULL
+    ,topic_date             DATETIME       NOT NULL
+    ,topic_cat              INT(8)         NOT NULL
+    ,topic_by               INT(8)         NOT NULL
+    ,PRIMARY KEY (topic_id)
+);
 
 
 ALTER TABLE Posting
