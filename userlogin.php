@@ -57,7 +57,7 @@
     <div class="login-page-boxes">
         <div class="accountform login-box">
             <h1 class="accountform-banner">Log in</h1>
-            <form action="" method="POST" class="loginform">
+            <form action="loginScript.php" method="POST" class="loginform">
                 <input type="hidden" name="step" value="confirmation">
                 <input type="hidden" name="rt" value="L">
                 <input type="hidden" name="rp" value="/login/home">
@@ -83,7 +83,7 @@
 
         <div class="accountform login-page-box">
             <h1 class="accountform-banner">Create an account</h1>
-            <form action="signupScript.php" method="POST">
+            <form action="signupscripts.php" method="POST">
                 <input type="hidden" name="rp" value="/login/home">
                 <input type="hidden" name="rt" value="L">
                 <input type="hidden" name="t" value="1521043560">

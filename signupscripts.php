@@ -1,10 +1,9 @@
 <?php
-session_start();
 require_once('mysqli_connect.php');
 
-    if(isset($_POST['login'])) {
-        $email = $_POST['userlogin'];
-        $pass = $_POST['userpass'];
+    if(isset($_POST['signup'])) {
+        $email = $_POST['usersignup'];
+        $pass = $_POST['signuppass'];
 
         // Connecting to the database
         $list = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
@@ -16,10 +15,10 @@ require_once('mysqli_connect.php');
 
         /* create a prepared statement */
         if ($stmt = mysqli_prepare($list, 
-               "SELECT * FROM Login WHERE userName= ? AND passName= ?")) {
+               "SELECT * FROM Login WHERE userName= ?")) {
 
             /* bind parameters for markers */
-            mysqli_stmt_bind_param($stmt, "ss", $email, $pass);
+            mysqli_stmt_bind_param($stmt, "s", $email);
 
             /* execute query */
             mysqli_stmt_execute($stmt);
@@ -30,18 +29,26 @@ require_once('mysqli_connect.php');
             if(mysqli_stmt_num_rows($stmt) == 1){
                 /* close statement */
                 mysqli_stmt_close($stmt);
-                $_SESSION['user'] = $email;
-                header('Location: category.php');
+                echo "One exist with that username";
                 die();
             } else {
-                echo "Wrong login credentials";
-                mysqli_stmt_close($stmt);
-                die();
+                $register = mysqli_prepare($list, 
+               "INSERT INTO Login (id, userName, passName) VALUES (NULL, ?, ?)");
+                
+                mysqli_stmt_bind_param($register, "ss", $email, $pass);
+
+                mysqli_stmt_execute($register);
+
+                mysqli_stmt_close($register);
+
+                header("Refresh:0");
             }
         } else {
             echo "Error with prepare statement!\n";
             mysqli_close($list);
             die();
         }
+    } else {
+        echo "Error";
     }
 ?>
