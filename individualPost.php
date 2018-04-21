@@ -51,13 +51,13 @@
     
     <header class="global-header wide">
 
-       <a class="header-logo" name="logoLink" href="category.php">CL</a>
+       <a class="header-logo" name="logoLink" href="index.php">CL</a>
 
         <nav class="breadcrumbs-container">
             <ul class="breadcrumbs">
                 <li class="crumb area">
                     <p>
-                        <a href="category.php">vancouver, BC</a>
+                        <a href="index.php">vancouver, BC</a>
                     </p>
                 </li>
             </ul>  

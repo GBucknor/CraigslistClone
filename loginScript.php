@@ -31,7 +31,7 @@ require_once('mysqli_connect.php');
                 /* close statement */
                 mysqli_stmt_close($stmt);
                 $_SESSION['user'] = $email;
-                header('Location: category.php');
+                header('Location: index.php');
                 die();
             } else {
                 echo "Wrong login credentials";

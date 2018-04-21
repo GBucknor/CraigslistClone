@@ -42,7 +42,7 @@
 <section class="page-container">
     
     <header class="global-header ">
-       <a class="header-logo" name="logoLink" href="category.php">CL</a>
+       <a class="header-logo" name="logoLink" href="index.php">CL</a>
 
         <nav class="breadcrumbs-container">
             <ul class="breadcrumbs">
@@ -122,7 +122,7 @@
        if( $num_row == 1 ) {
            mysqli_close($list);
            $_SESSION['user'] = $user;
-           header('Location: category.php');
+           header('Location: index.php');
            die();
        } else {
            echo "Wrong login credentials";
