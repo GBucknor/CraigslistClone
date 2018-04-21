@@ -29,6 +29,7 @@ require_once('mysqli_connect.php');
             if(mysqli_stmt_num_rows($stmt) == 1){
                 /* close statement */
                 mysqli_stmt_close($stmt);
+                mysqli_close($list);
                 echo "One exist with that username";
                 die();
             } else {
@@ -40,8 +41,9 @@ require_once('mysqli_connect.php');
                 mysqli_stmt_execute($register);
 
                 mysqli_stmt_close($register);
+                mysqli_close($list);
 
-                header("Refresh:0");
+                header('Location: userlogin.php');
             }
         } else {
             echo "Error with prepare statement!\n";

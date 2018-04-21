@@ -104,7 +104,7 @@
         <h4 class="ban"><a href="#" class="ccc" data-alltitle="all community" data-cat="ccc"><span class="txt">community<sup class="c"></sup></span></a></h4>
         <div class="cats">
         <ul id="ccc0" class="left">
-<li><a href="postListing.php?id=activities" class="act" data-cat="act"><span class="txt">activities<sup class="c"></sup></span></a></li>
+<li><a href="postListing.php?id=activites" class="act" data-cat="act"><span class="txt">activities<sup class="c"></sup></span></a></li>
 <li><a href="postListing.php?id=artists" class="ats" data-cat="ats"><span class="txt">artists<sup class="c"></sup></span></a></li>
 <li><a href="postListing.php?id=childcare" class="kid" data-cat="kid"><span class="txt">childcare<sup class="c"></sup></span></a></li>
 <li><a href="postListing.php?id=classes" class="cls" data-cat="cls"><span class="txt">classes<sup class="c"></sup></span></a></li>

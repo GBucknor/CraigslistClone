@@ -30,6 +30,7 @@ require_once('mysqli_connect.php');
             if(mysqli_stmt_num_rows($stmt) == 1){
                 /* close statement */
                 mysqli_stmt_close($stmt);
+                mysqli_close($list);
                 $_SESSION['user'] = $email;
                 header('Location: index.php');
                 die();
