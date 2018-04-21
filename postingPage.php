@@ -93,11 +93,29 @@ ob_start();
 
         $list = connect();
 
-        $sql = "INSERT INTO Posting (postID, title, specLoc, postCode, body, contactOp, phoneNum, contactName, catPostID)
-        VALUES (NULL,'$title', '$specLoc', '$postal', '$body2', '$phoneOp', '$phoneNum', '$contact', '$category')";
+        /* create a prepared statement */
+        if ($stmt = mysqli_prepare($list, 
+               "INSERT INTO Posting (postID, title, specLoc, postCode, body, contactOp, phoneNum, contactName, catPostID)
+        VALUES (NULL, ?, ?, ?, ?, ?, ?, ?, ?)")) {
 
-        sqlCheck($list, $sql, $title, $category);
+            /* bind parameters for markers */
+            mysqli_stmt_bind_param($stmt, "ssssssss", $title, $specLoc, $postal, $body2, $phoneOp, $phoneNum, $contact, $category);
+
+            /* execute query */
+            mysqli_stmt_execute($stmt);
+            
+            /* stores it in stmt */
+            mysqli_stmt_store_result($stmt);
+
+            mysqli_stmt_close($stmt);  
+            redirect($title, $category);
+        } else {
+            echo "Error with prepare statement!\n";
+            mysqli_close($list);
+            die();
+        }
     }
+    
     
     // Checking to see if we actually placed the data into the database
     function sqlCheck($list, $sql, $title, $category){
