@@ -4,8 +4,6 @@ require_once('mysqli_connect.php');
     if(isset($_POST['submit'])) {
         $email = $_POST['inputEmailHandle'];
         $pass = $_POST['inputPassword'];
-        echo $email;
-        echo $pass;
 
         // Connecting to the database
         $list = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
@@ -15,24 +13,33 @@ require_once('mysqli_connect.php');
             die("Connection failed: ".mysqli_connect_error()); // Remove the connect_error method after done testing because of hacking issues.
         }
 
-        $query = "SELECT * FROM Login WHERE userName='$email' AND passName='$pass'";
-        
-        $result = mysqli_query($list,$query)or die(mysqli_error());
-        $num_row = mysqli_num_rows($result);
+        /* create a prepared statement */
+        if ($stmt = mysqli_prepare($list, 
+               "SELECT * FROM Login WHERE userName= ? AND passName= ?")) {
 
-       if( $num_row == 1 ) {
-           mysqli_close($list);
-           header('Location: index.html');
-           die();
-       } else {
-           echo "Wrong login credentials";
-           mysqli_close($list);
-           die();
-       }     
+            /* bind parameters for markers */
+            mysqli_stmt_bind_param($stmt, "ss", $email, $pass);
 
-        // Closing the connection to the database
-        echo "Something broke with the login function";
-        mysqli_close($list);
-        die();
+            /* execute query */
+            mysqli_stmt_execute($stmt);
+            
+            /* stores it in stmt */
+            mysqli_stmt_store_result($stmt);
+            
+            if(mysqli_stmt_num_rows($stmt) == 1){
+                /* close statement */
+                mysqli_stmt_close($stmt);
+                header('Location: category.php');
+                die();
+            } else {
+                echo "Wrong login credentials";
+                mysqli_stmt_close($stmt);
+                die();
+            }
+        } else {
+            echo "Error with prepare statement!\n";
+            mysqli_close($list);
+            die();
+        }
     }
 ?>
