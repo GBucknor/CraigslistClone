@@ -1,109 +1,97 @@
 <?php
-    session_start();
-    require_once('mysqli_connect.php');
-    include 'functions.php';
+  session_start();
+  require_once('mysqli_connect.php');
+  include 'functions.php';
 
-    // Connects to the database
-    function connect(){
-        // Connecting to the database
-        $list = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
+  // Connects to the database
+  function connect(){
+    // Connecting to the database
+    $list = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
 
-        // If we don't connect to the database it will spit out an error for us to fix
-        if(!$list) {
-            die("Connection failed: ".mysqli_connect_error()); // Remove the connect_error method after done testing because of hacking issues.
-        } else {
-            return $list;
-        }
-    }   
-    // making a change  
+    // If we don't connect to the database it will spit out an error for us to fix
+    if(!$list) {
+      die("Connection failed: ".mysqli_connect_error()); // Remove the connect_error method after done testing because of hacking issues.
+    } else {
+      return $list;
+    }
+  } 
 ?>
-
 <!DOCTYPE html>
 <html>
-    
-    <head>
-        <title>craigslist - Vancouver</title>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width,initial-scale=1">
-        
-        <!-- Craigslist Tab Icon -->
-        <link rel="icon" href="Images/logo.png">
-        
-        <!-- CSS Files -->
-        <link rel="stylesheet" href="CSS/index.css" type="text/css">
-        <link rel="stylesheet" href="CSS/Base.css" type="text/css">
-    </head>
-    
+  <head>
+    <title>craigslist - Vancouver</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+
+    <!-- Craigslist Tab Icon -->
+    <link rel="icon" href="Images/logo.png">
+
+    <!-- CSS Files -->
+    <link rel="stylesheet" href="CSS/index.css" type="text/css">
+    <link rel="stylesheet" href="CSS/Base.css" type="text/css">
+  </head>
 <body class="homepage en desktop w1024"> 
 <div class="wrapper">
 <section class="page-container">
-    
-    <div class="bglogo"></div>
-        
-    <header class="global-header wide">
-        <a class="header-logo" name="logoLink" href="/">CL</a>
-        <nav class="breadcrumbs-container">
-            <ul class="breadcrumbs">
-                <li class="crumb area">
-                    <p>
-                        <a href="#">vancouver, BC</a>
-                    </p>
-                </li>
-            </ul>
-        </nav>
-        <span class="linklike show-wide-header">...</span>
-    </header>
-    
-    
-    <nav id="topban" class="regular">
-        <div class="regular-area">
-            <h2 class="area">vancouver, BC</h2>
-            <ul class="sublinks">   
-                <li><a href="#" title="vancouver">van</a></li>
-                <li><a href="#" title="north shore">nvn</a></li>
-                <li><a href="#" title="burnaby/newwest">bnc</a></li>
-                <li><a href="#" title="delta/surrey/langley">rds</a></li>
-                <li><a href="#" title="tricities/pitt/maple">pml</a></li>
-                <li><a href="#" title="richmond">rch</a></li>
-            </ul>   
-        </div>
 
-        <div class="enter-area">
-            <input type="text" class="subarea-input flatinput" data-autocomplete="subarea" value="">
-        </div>
-        <div class="custom-area no-name">
-            <h2 class="area"></h2>
-            <div class="radius-info">
-                within <span class="distance"></span> mi of <span class="postal"></span>
-            </div>
-            <div class="exit-subarea">×</div>
-        </div>
+<div class="bglogo"></div>   
+  <header class="global-header wide">
+    <a class="header-logo" name="logoLink" href="/">CL</a>
+    <nav class="breadcrumbs-container">
+      <ul class="breadcrumbs">
+        <li class="crumb area">
+          <p><a href="#">vancouver, BC</a></p>
+        </li>
+      </ul>
     </nav>
-    
-       <div id="leftbar">
-            <div id="logo">
-                <a href="https://www.craigslist.org/about/sites">craigslist</a>
-                <sup><a href="https://www.craigslist.org/about/sites#CA">ca</a></sup>
-           </div>
-           
-    <?php
-        if (isLoggedin()) {
-            echo "User: " . $_SESSION["user"] . " " . '<a href="logout.php">Logout</a><br><br>';
-        } else {
-            echo '<a href="userlogin.php">Login</a><br><br>';
-        }
-        echo '<a href="postingPage.php">Post your listing!</a><br><br>';
-    ?>
-    </div>
-    
-    
+    <span class="linklike show-wide-header">...</span>
+  </header>
+  <nav id="topban" class="regular">
+      <div class="regular-area">
+          <h2 class="area">vancouver, BC</h2>
+          <ul class="sublinks">   
+              <li><a href="#" title="vancouver">van</a></li>
+              <li><a href="#" title="north shore">nvn</a></li>
+              <li><a href="#" title="burnaby/newwest">bnc</a></li>
+              <li><a href="#" title="delta/surrey/langley">rds</a></li>
+              <li><a href="#" title="tricities/pitt/maple">pml</a></li>
+              <li><a href="#" title="richmond">rch</a></li>
+          </ul>   
+      </div>
+      <div class="enter-area">
+          <input type="text" class="subarea-input flatinput" data-autocomplete="subarea" value="">
+      </div>
+      <div class="custom-area no-name">
+          <h2 class="area"></h2>
+          <div class="radius-info">
+            within <span class="distance"></span> mi of <span class="postal"></span>
+          </div>
+          <div class="exit-subarea">×</div>
+      </div>
+  </nav>
+    <div id="leftbar">
+        <div id="logo">
+            <a href="https://www.craigslist.org/about/sites">craigslist</a>
+            <sup><a href="https://www.craigslist.org/about/sites#CA">ca</a></sup>
+        </div>     
+  <?php
+      if (isLoggedin()) {
+          echo "User: " . $_SESSION["user"] . " " . '<a href="logout.php">Logout</a><br><br>';
+      } else {
+          echo '<a href="userlogin.php">Login</a><br><br>';
+      }
+      echo '<a href="postingPage.php">Post your listing!</a><br><br>';
+  ?>
+</div>
+
+
 <div id="center">
 <div class="community">
-                
-        <div id="ccc" class="col">
-        <h4 class="ban"><a href="#" class="ccc" data-alltitle="all community" data-cat="ccc"><span class="txt">community<sup class="c"></sup></span></a></h4>
-        <div class="cats">
-        <ul id="ccc0" class="left">
+            
+    <div id="ccc" class="col">
+    <h4 class="ban"><a href="#" class="ccc" data-alltitle="all community" data-cat="ccc"><span class="txt">community<sup class="c"></sup></span></a></h4>
+    <div class="cats">
+    <ul id="ccc0" class="left">
 <li><a href="postListing.php?id=activites" class="act" data-cat="act"><span class="txt">activities<sup class="c"></sup></span></a></li>
 <li><a href="postListing.php?id=artists" class="ats" data-cat="ats"><span class="txt">artists<sup class="c"></sup></span></a></li>
 <li><a href="postListing.php?id=childcare" class="kid" data-cat="kid"><span class="txt">childcare<sup class="c"></sup></span></a></li>
@@ -123,11 +111,11 @@
 </ul>
 </div>
 </div>
-    
-        <div id="bbb" class="col">
-        <h4 class="ban"><a href="#" class="bbb" data-alltitle="all services" data-cat="bbb"><span class="txt">services<sup class="c"></sup></span></a></h4>
-        <div class="cats">
-        <ul id="bbb0" class="left">
+
+    <div id="bbb" class="col">
+    <h4 class="ban"><a href="#" class="bbb" data-alltitle="all services" data-cat="bbb"><span class="txt">services<sup class="c"></sup></span></a></h4>
+    <div class="cats">
+    <ul id="bbb0" class="left">
 <li><a href="#" class="aos" data-cat="aos"><span class="txt">automotive<sup class="c"></sup></span></a></li>
 <li><a href="postListing.php?id=beauty" class="bts" data-cat="bts"><span class="txt">beauty<sup class="c"></sup></span></a></li>
 <li><a href="postListing.php?id=cellmobile" class="cms" data-cat="cms"><span class="txt">cell/mobile<sup class="c"></sup></span></a></li>
@@ -154,14 +142,14 @@
 </ul>
 </div>
 </div>
-    
-    
-        </div>
-        <div class="housing">         
-        <div id="hhh" class="col">
-        <h4 class="ban"><a href="#" class="hhh" data-alltitle="all housing" data-cat="hhh"><span class="txt">housing<sup class="c"></sup></span></a></h4>
-        <div class="cats">
-        <ul id="hhh0">
+
+
+    </div>
+    <div class="housing">         
+    <div id="hhh" class="col">
+    <h4 class="ban"><a href="#" class="hhh" data-alltitle="all housing" data-cat="hhh"><span class="txt">housing<sup class="c"></sup></span></a></h4>
+    <div class="cats">
+    <ul id="hhh0">
 <li><a href="postListing.php?id=aptshousing" class="apa" data-cat="apa"><span class="txt">apts / housing<sup class="c"></sup></span></a></li>
 <li><a href="postListing.php?id=houseswap" class="swp" data-cat="swp"><span class="txt">housing swap<sup class="c"></sup></span></a></li>
 <li><a href="postListing.php?id=housingwanted" class="hsw" data-cat="hsw"><span class="txt">housing wanted<sup class="c"></sup></span></a></li>
@@ -175,12 +163,12 @@
 </ul>
 </div>
 </div>
-            
+        
 
-        <div id="sss" class="col">
-        <h4 class="ban"><a href="#" class="sss" data-alltitle="all for sale" data-cat="sss"><span class="txt">for sale<sup class="c"></sup></span></a></h4>
-        <div class="cats">
-        <ul id="sss0" class="left">
+    <div id="sss" class="col">
+    <h4 class="ban"><a href="#" class="sss" data-alltitle="all for sale" data-cat="sss"><span class="txt">for sale<sup class="c"></sup></span></a></h4>
+    <div class="cats">
+    <ul id="sss0" class="left">
 <li><a href="postListing.php?id=antiques" class="ata" data-cat="ata"><span class="txt">antiques<sup class="c"></sup></span></a></li>
 <li><a href="postListing.php?id=appliances" class="ppa" data-cat="ppa"><span class="txt">appliances<sup class="c"></sup></span></a></li>
 <li><a href="postListing.php?id=artscraft" class="ara" data-cat="ara"><span class="txt">arts+crafts<sup class="c"></sup></span></a></li>
@@ -225,13 +213,13 @@
 </ul>
 </div>
 </div>
-            
-        </div>
-        <div class="jobs">      
-        <div id="jjj" class="col">
-        <h4 class="ban"><a href="#" class="jjj" data-alltitle="all jobs" data-cat="jjj"><span class="txt">jobs<sup class="c"></sup></span></a></h4>
-        <div class="cats">
-        <ul id="jjj0">
+        
+    </div>
+    <div class="jobs">      
+    <div id="jjj" class="col">
+    <h4 class="ban"><a href="#" class="jjj" data-alltitle="all jobs" data-cat="jjj"><span class="txt">jobs<sup class="c"></sup></span></a></h4>
+    <div class="cats">
+    <ul id="jjj0">
 <li><a href="postListing.php?id=accfinance" class="acc" data-cat="acc"><span class="txt">accounting+finance<sup class="c"></sup></span></a></li>
 <li><a href="postListing.php?id=adminoffice" class="ofc" data-cat="ofc"><span class="txt">admin / office<sup class="c"></sup></span></a></li>
 <li><a href="postListing.php?id=archeng" class="egr" data-cat="egr"><span class="txt">arch / engineering<sup class="c"></sup></span></a></li>
@@ -268,11 +256,11 @@
 </ul>
 </div>
 </div>
-            
-        <div id="ggg" class="col">
-        <h4 class="ban"><a href="#" class="ggg" data-alltitle="all gigs" data-cat="ggg"><span class="txt">gigs<sup class="c"></sup></span></a></h4>
-        <div class="cats">
-        <ul id="ggg0" class="left">
+        
+    <div id="ggg" class="col">
+    <h4 class="ban"><a href="#" class="ggg" data-alltitle="all gigs" data-cat="ggg"><span class="txt">gigs<sup class="c"></sup></span></a></h4>
+    <div class="cats">
+    <ul id="ggg0" class="left">
 <li><a href="postListing.php?id=computergig" class="cpg" data-cat="cpg"><span class="txt">computer<sup class="c"></sup></span></a></li>
 <li><a href="postListing.php?id=creativegig" class="crg" data-cat="crg"><span class="txt">creative<sup class="c"></sup></span></a></li>
 <li><a href="postListing.php?id=crewgig" class="cwg" data-cat="cwg"><span class="txt">crew<sup class="c"></sup></span></a></li>
@@ -287,31 +275,31 @@
 </div>
 </div>
 
-        <div id="rrr" class="col">
-        <h4 class="ban"><a href="postListing.php?id=resumes" class="rrr" data-alltitle="all resumes" data-cat="rrr"><span class="txt">resumes<sup class="c"></sup></span></a></h4>
-        <div class="cats">
-        </div>
+    <div id="rrr" class="col">
+    <h4 class="ban"><a href="postListing.php?id=resumes" class="rrr" data-alltitle="all resumes" data-cat="rrr"><span class="txt">resumes<sup class="c"></sup></span></a></h4>
+    <div class="cats">
+    </div>
+</div>
+
+
+</div>
 </div>
     
-    
-</div>
-</div>
-        
 </section> 
-    
-    <footer>
-        <ul class="clfooter">
-            <li>©  <span class="desktop">craigslist</span><span class="mobile">CL</span></li>
-            <li><a href="#">help</a></li>
-            <li><a href="#">safety</a></li>
-            <li class="desktop"><a href="#">privacy</a></li>
-            <li class="desktop"><a href="#">feedback</a></li>
-            <li class="desktop"><a href="#">cl jobs</a></li>
-            <li><a href="#">terms</a><sup class="neu">new</sup></li>
-            <li><a href="#">about</a></li>
-        </ul>
-    </footer>
-    
+
+<footer>
+    <ul class="clfooter">
+        <li>©  <span class="desktop">craigslist</span><span class="mobile">CL</span></li>
+        <li><a href="#">help</a></li>
+        <li><a href="#">safety</a></li>
+        <li class="desktop"><a href="#">privacy</a></li>
+        <li class="desktop"><a href="#">feedback</a></li>
+        <li class="desktop"><a href="#">cl jobs</a></li>
+        <li><a href="#">terms</a><sup class="neu">new</sup></li>
+        <li><a href="#">about</a></li>
+    </ul>
+</footer>
+
 </div>
 </body>
 </html>

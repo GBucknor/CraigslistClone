@@ -27,6 +27,7 @@ require_once('mysqli_connect.php');
             /* stores it in stmt */
             mysqli_stmt_store_result($stmt);
             
+            /* To check to see if they match on the dbs */
             if(mysqli_stmt_num_rows($stmt) == 1){
                 /* close statement */
                 mysqli_stmt_close($stmt);
@@ -34,6 +35,7 @@ require_once('mysqli_connect.php');
                 $_SESSION['user'] = $email;
                 header('Location: index.php');
                 die();
+            /* If it fails to find a match */
             } else {
                 echo "Wrong login credentials";
                 mysqli_stmt_close($stmt);
