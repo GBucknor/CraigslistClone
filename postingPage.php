@@ -1,27 +1,26 @@
 <?php
-ob_start();
-    session_start();
-    require_once('mysqli_connect.php');
-    include 'functions.php';
+    ob_start();
+        session_start();
+        require_once('mysqli_connect.php');
+        include 'functions.php';
 
-    // Connects to the database
-    function connect(){
-    // Connecting to the database
-    $list = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
+        // Connects to the database
+        function connect(){
+        // Connecting to the database
+        $list = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
 
-    // If we don't connect to the database it will spit out an error for us to fix
-    if(!$list) {
-        die("Connection failed: ".mysqli_connect_error()); // Remove the connect_error method after done testing because of hacking issues.
-    } else {
-        return $list;
+        // If we don't connect to the database it will spit out an error for us to fix
+        if(!$list) {
+            die("Connection failed: ".mysqli_connect_error()); // Remove the connect_error method after done testing because of hacking issues.
+        } else {
+            return $list;
+        }
     }
-}
 ?>
 
 <!DOCTYPE html>
 <html>
 <body>
-    
     <?php
         if (isLoggedin()) {
             echo $_SESSION["user"];
@@ -29,7 +28,7 @@ ob_start();
         }
     ?>
 
-<h2>Individual Posting Testing</h2>
+    <h2>Individual Posting Testing</h2>
 
 <form action="" method="post">
     Title<br>
@@ -39,17 +38,16 @@ ob_start();
     <input type="text" name="specLoc">
     <br>
     Category
-
-        <?php
+    <?php
         // Connecting to the database
         $list = connect();
-    
+
         $sql = "SELECT
             catID,
             catName
         FROM
             Categories";
-    
+
         $rows = mysqli_query($list, $sql);
         echo "<select name='category'>";
         while($row = mysqli_fetch_assoc($rows))
@@ -58,7 +56,6 @@ ob_start();
         }
         echo "</select>"; 
     ?>
-    
     <br>
     Postal Code:<br>
     <input type="text" name="postal">
@@ -93,10 +90,11 @@ ob_start();
 
         $list = connect();
 
-        /* create a prepared statement */
-        if ($stmt = mysqli_prepare($list, 
-               "INSERT INTO Posting (postID, title, specLoc, postCode, body, contactOp, phoneNum, contactName, catPostID)
-        VALUES (NULL, ?, ?, ?, ?, ?, ?, ?, ?)")) {
+        $sqlSubmit = "INSERT INTO Posting (postID, title, specLoc, postCode, body, contactOp, phoneNum, contactName, catPostID)
+                      VALUES (NULL, ?, ?, ?, ?, ?, ?, ?, ?)";
+
+        /* creating a prepared statement */
+        if ($stmt = mysqli_prepare($list, $sqlSubmit)) {
 
             /* bind parameters for markers */
             mysqli_stmt_bind_param($stmt, "ssssssss", $title, $specLoc, $postal, $body2, $phoneOp, $phoneNum, $contact, $category);
@@ -107,15 +105,20 @@ ob_start();
             /* stores it in stmt */
             mysqli_stmt_store_result($stmt);
 
+            /* Freeing memory associated with the results */
+            mysqli_free_result($stmt);
+
+            /* Closing the prepared statement */
             mysqli_stmt_close($stmt);  
+
+            /* Redirects user to the specific category */
             redirect($title, $category);
         } else {
             echo "Error with prepare statement!\n";
             mysqli_close($list);
             die();
         }
-    }
-    
+    } 
     
     // Checking to see if we actually placed the data into the database
     function sqlCheck($list, $sql, $title, $category){
@@ -147,8 +150,6 @@ ob_start();
         header("Location: individualPost.php?id=$i");
         exit();
     }
-?>
-    
-
+?> 
 </body>
 </html>
