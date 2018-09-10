@@ -29,21 +29,30 @@ require_once('mysqli_connect.php');
             
             /* To check to see if they match on the dbs */
             if(mysqli_stmt_num_rows($stmt) == 1){
-                /* close statement */
+                /* Freeing memory associated with the results */
+                mysqli_free_result($stmt);
+
+                /* Closing the prepared statement */ 
                 mysqli_stmt_close($stmt);
+
                 mysqli_close($list);
+
                 $_SESSION['user'] = $email;
+
                 header('Location: index.php');
-                die();
             /* If it fails to find a match */
             } else {
                 echo "Wrong login credentials";
-                mysqli_stmt_close($stmt);
+
+                mysqli_close($list);
+
                 die();
             }
         } else {
             echo "Error with prepare statement!\n";
+
             mysqli_close($list);
+
             die();
         }
     }
