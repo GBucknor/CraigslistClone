@@ -131,6 +131,8 @@
         }
     }
     
+    // if sqlCheck function is successful it will redirect the user to the
+    // post they've created
     function redirect($title, $category){
         
         $list = connect();
